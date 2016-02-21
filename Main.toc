@@ -148,7 +148,13 @@
 \contentsline {subsubsection}{\numberline {3.7.8.1}Tipos de asociaciones}{83}{subsubsection.3.7.8.1}
 \contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {belongs\_to}}{83}{section*.40}
 \contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_one}}{84}{section*.41}
-\contentsline {chapter}{\numberline {4}Conclusi\IeC {\'o}n}{87}{chapter.4}
-\contentsline {chapter}{\numberline {A}M\IeC {\'a}s cosas}{88}{appendix.Alph1}
-\contentsline {chapter}{\numberline {B}Y m\IeC {\'a}s cosas a\IeC {\'u}n}{89}{appendix.Alph2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{90}{appendix.Alph2}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_many}}{86}{section*.42}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_many :through}}{87}{section*.43}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_one :through}}{89}{section*.44}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_and\_belongs\_to\_many}}{91}{section*.45}
+\contentsline {paragraph}{Asociaciones polimorficas}{92}{section*.46}
+\contentsline {subsection}{\numberline {3.7.9}Interfaz de consultas}{94}{subsection.3.7.9}
+\contentsline {chapter}{\numberline {4}Conclusi\IeC {\'o}n}{95}{chapter.4}
+\contentsline {chapter}{\numberline {A}M\IeC {\'a}s cosas}{96}{appendix.Alph1}
+\contentsline {chapter}{\numberline {B}Y m\IeC {\'a}s cosas a\IeC {\'u}n}{97}{appendix.Alph2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{98}{appendix.Alph2}
