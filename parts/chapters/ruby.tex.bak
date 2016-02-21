@@ -1,0 +1,1421 @@
+\section{Introducción}
+\textit{Ruby} es un lenguaje de programación diseñado y desarrollado a mitad de los años 90 por \textit{Yukihiro ``Matz'' Matsumoto} en Japón. De acuerdo con su creador, \textit{Ruby} está influenciado por \textit{Perl}, \textit{Smalltalk}, \textit{Eiffel}, \textit{Ada} and \textit{Lisp}.
+Soporta varios paradigmas de la programación, incluyendo funcional, orientación a objetos e imperativo. Además proporciona tipos dinámicos y tratamiento de memoria.
+
+
+
+\section{Historia}
+
+\subsection{Concepto Inicial}
+\textit{Ruby} fue concebido el 24 de Febrero de 1993. En un \textit{post} de \textit{ruby-talk} en 1999, \textit{Matsumoto} describió sus ideas iniciales sobre el lenguaje:
+
+\begin{quotation}\small\noindent 
+``Estaba hablando con un compañero de trabajo acerca de la posibilidad de un lenguaje orientado a objetos y a \textit{scripting}.  Yo sabía \textit{Perl} (\textit{Perl4}, no \textit{Perl5}), pero no me gustó el lenguaje realmente porque ``tenía un olor a programación de juguete (Aún la tiene)''. Los lenguajes orientados a objetos parecían muy prometedores. Yo sabía \textit{Python} por aquel entonces pero no me gustaba porque pensé que no era un verdadero lenguaje de programación orientado a objetos — Las características de orientación a objetos parecían un \textit{add-on} o un \textit{plugin} al lenguaje. Como maníaco de los lenguajes de programación y fan de la orientación a objetos por 15 años, realmente quise un lenguaje genuino orientado a objetos, fácil de usar en forma de lenguaje \textit{script}. Busqué uno que satisficiera los requisitos pero no lo encontré. Así que decidí hacerlo yo.'' ---Yukihiro ``Matz'' Matsumoto \cite{Matsumoto1999}
+\end{quotation}
+
+\textit{Matsumoto} describe el diseño de \textit{Ruby} tan simple como el de núcleo \textit{Lisp}, con un sistema de orientación a objetos parecido a \textit{Smalltalk}, bloques inspirados por funciones de orden superior\footnote{Paradigma de la programación funcional. Una función puede tomar una o varias funciones como entradas y devolver la salida en una función.} y una utilidad práctica parecida a la de \textit{Perl}.
+
+
+\subsection{El nombre: \textit{Ruby}}
+El nombre \textit{Ruby} surgió durante una sesión de chat online entre \textit{Matsumoto} y \textit{Keiju Ishitsuka}, el 24 de Febrero de 1993, antes de haberse escrito ni una sola línea de código. Dos nombres surgieron inicialmente: \textit{Coral} y \textit{Ruby}. \textit{Matsumoto} finalmente escoge \textit{Ruby} en un email enviado a \textit{Ishitsuka} posteriormente\footnote{Una de las razones de la decisión final fue que la piedra rubí era la ``piedra de nacimiento'' de uno de sus compañeros de trabajo.}.
+
+
+\subsection{Primera publicación}
+El primer lanzamiento público de \textit{Ruby 0.95} fue anunciado grupos de noticias locales de Japón el 21 de Diciembre de 1995. En consecuencia, tres versiones de \textit{Ruby} más fueron lanzadas en dos días.
+
+
+En este estado de desarrollo ya estaba presentes muchas de las funcionalidades y características familiares en las futuras versiones de \textit{Ruby} como la Orientación a Objetos, clases y herencia de clases, mixins, iteradores, clausuras, manejo de excepciones y colector de basura.
+
+
+\subsection{Primeras versiones}
+Después del lanzamiento de \textit{Ruby 0.95}, le siguieron varias versiones estables los próximos años.
+\begin{enumerate}
+\item \textit{Ruby 1.0}: 25 de Diciembre de 1996
+\item \textit{Ruby 1.2}: Diciembre de 1998
+\item \textit{Ruby 1.4}: Agosto de 1999
+\item \textit{Ruby 1.6}: Septiembre de 2000
+\item En 1997, el primer artículo sobre \textit{Ruby} fue publicado en la Web.\cite{Sieger2006}
+\item En 1998, \textit{Ruby Application Archive} fue lanzado por \textit{Matsumoto} con una simple homepage en inglés. \footnote{Ruby Application Archive (RAA). RAA fue cerrado en 2003, véase el enlace \url{https://www.ruby-lang.org/en/news/2013/08/08/rip-raa/}. La documentación se ha trasladado a \url{https://rubygems.org/} y a \url{https://www.ruby-toolbox.com/}.}
+\item En 1999, surge el primer email sobre el lenguaje en habla inglesa, \textit{ruby-talk}, lo que eleva el interés por el lenguaje fuera de Japón. En el mismo año \textit{Matsumoto} e \textit{Ishitsuka} publican el primer libro sobre \textit{Ruby}, \textit{``The Object-oriented Scripting Language Ruby''} que se publicó en Japón.
+\item Allá en el 2000, \textit{Ruby} era ya más popular que \textit{Python} en Japón. En Septiembre del año 2000, fue impreso el primer libro de \textit{Ruby} en inglés.
+\item En el año 2002, la lista de correo inglesa de \textit{ruby-talk} ya tenías más tráfico de mensajes que la lista de correo japonesa demostrando que \textit{Ruby} había incrementado su popularidad internacionalmente.
+\end{enumerate}
+
+
+\subsection{Ruby 1.8}
+Fue inicialmente lanzado en Agosto de 2003, fue estable durante mucho tiempo y finalmente fue retirado en Junio de 2013. A pesar de estar \textit{deprecated}, todavía existe código basado en el. \textit{Ruby} 1.8 es solo parcialmente compatible con \textit{Ruby 1.9}.\par
+
+\textit{Ruby 1.8} ha sido sujeto de varias estandarizaciones de la industria. Las especificaciones del lenguaje para \textit{Ruby} fueron desarrolladas por \textit{Open Standards Promotion Center} de \textit{Information-Technology Promotion Agency}\footnote{Agencia gubernamental japonesa.}. Fue aceptado como estándar internacional ISO/IEC 30170 en 2012.
+Alrededor de 2005, surge gran interés por \textit{Ruby} gracias a \textit{Ruby on Rails}, un \textit{web application framework} escrito en \textit{Ruby}, del que se hablará más a fondo posteriormente.
+
+\subsection{Ruby 1.9}
+\textit{Ruby 1.9} fue lanzado en Diciembre de 2007. Se introdujeron nuevas funcionalidades y mejoras sobre la versión 1.8 como el manejo de variables locales dentro de los bloques y sintaxis de lenguaje lambda. \textit{Ruby 1.9} está obsoleto desde Febrero de 2015 por lo que lo que se recomienda encarecidamente a los usuarios, actualizar a una versión superior.
+
+\subsection{Ruby 2.0}
+Introdujo cambios significativos y pretendió ser completamente con \textit{Ruby 1.9.3}. El lanzamiento oficial de \textit{Ruby 2.0} el 24 de Febrero de 2013 solo contenía cinco incompatibilidades conocidas con la versión anterior.
+
+\subsection{Ruby 2.1}
+\textit{Ruby 2.1.0} fue lanzado el día de Navidad de 2013 y contenía corrección de bugs, actualización de librerías e incremento de rendimientos.
+
+\subsection{Ruby 2.2}
+Fue lanzado el día de Navidad de 2014. Su cambio más notorio es en el manejo y tratamiento de la memoria. Además incluye arreglos de errores, actualización de librerías y eliminación de APIs obsoletas.
+
+\subsection{Ruby 2.3}
+Lanzado el 25 de Diciembre de 2015, \textit{Ruby 2.3} contiene bastantes mejoras, de las cuales las más notables son:
+\begin{enumerate}
+\item La habilidad de marcar todos literales de tipo string como \textit{frozen} por defecto, mejorando ampliamente el rendimiento de las operaciones del tipo \textit{string}.
+\item Comparación de \textit{hash} directa comprobando la clave y el valor en vez de únicamente las claves.
+\item Una nueva forma de navegación segura para el operador \texttt{\&.}, que facilita el tratamiento de valores nulos.
+\item La gema \texttt{did\_you\_mean} is integrada por defecto.
+\item La adicción de \texttt{Hash\#dig} y \texttt{Array\#dig} ayuda a la extracción de valores profundamente anidados.
+\end{enumerate}
+
+
+\section{Filosofía de Ruby}
+\textit{Matsumoto} asiente que \textit{Ruby} está diseñado para la productividad y la diversión. Propone que casi todos los lenguajes de programación, muchos ingenieros y científicos de computación están muy centrados en la máquina. Piensa que se debe facilitar el trabajo al programador y no al ordenador. \par
+Aunque \textit{Matsumoto} no lo hiciera a propósito, \textit{Ruby} está asociado con un diseño POLA (Principle Of Least Astonishment), es decir, pretende evitar confusión a los usuarios más avanzados.\cite{Venners2003}
+
+\section{Ruby.\textit{new}}
+\textit{Matsumoto} y \textit{Ishitsuka}, en su libro \textit{``The Object-oriented Scripting Language Ruby''}, comienzan explicando \textit{Ruby} con un breve de resumen sobre tipos básicos, asignaciones, declaraciones y otros detalles, para posteriormente hacer un análisis profundo utilizando un enfoque top-down. En el presente documento se procederá a realizar un análisis que detalle las funcionalidades y particularidades de \textit{Ruby} más importantes. Se respetará la estructura del libro de \textit{Matsumoto} e \textit{Ishitsuka}.
+
+\subsection{Ruby \emph{es} un lenguaje Orientado a Objetos}
+\textit{Ruby} es genuinamente un lenguaje Orientado a Objetos. Todo lo que se manipula en \textit{Ruby} es un objeto, y los resultados de sus manipulaciones son objetos también.
+
+En \textit{Ruby}, los objetos son creados llamando a su constructor que es un método especial asociado a la clase del objeto. El constructor estándar es \textit{new}.
+
+\begin{lstlisting}[language=Ruby]
+song1 = Song.new("Billie Jean")
+song2 = Song.new("Never gonna give you up")
+# and so on
+\end{lstlisting}
+
+Éstas instancias provienen de la misma clase \texttt{Song} pero tienen características únicas. Primero, cada objeto tiene un identificador único de objeto (\textit{object id}). Segundo, se pueden definir \texttt{instance variables}, variables con valores que son únicas a cada objeto. Estas variables instanciadas mantienen el estado del objeto. En el caso de la clase \texttt{Song}, por ejemplo, probablemente tendrán una variable instanciada que contenga el título de la canción.
+
+Dentro de cada clase, se pueden definir métodos. Cada método es un bloque que realiza una funcionalidad que podrá ser llamada desde dentro de la clase (dependiendo de las restricciones de acceso) o desde fuera. Estos métodos tiene acceso a las variables instanciadas y por consiguiente, al estado del objeto.
+
+Los métodos son invocados enviando un mensaje al objeto. El mensaje contiene el nombre del método y los parámetros que el método pueda necesitar.
+
+\begin{lstlisting}[language=Ruby]
+"gin joint".length	>>	9
+"Rick".index("c")	>>	2
+-1942.abs		>>	1942
+sam.play(aSong)		>>	"Never gonn..."
+\end{lstlisting}
+
+Al contrario que en otros lenguajes de programación, en \textit{Ruby}, los métodos tienen métodos útiles y frecuentes de forma inherente; mientras que en otros lenguajes se debe llamar a una función diferente.
+
+\begin{lstlisting}[language=Java]
+number = Math.abs(number); //Java code
+\end{lstlisting}
+\begin{lstlisting}[language=Ruby]
+number = number.abs #Ruby code
+\end{lstlisting}
+\begin{lstlisting}[language=C]
+strlen("mecanica celeste"); //C code
+\end{lstlisting}
+\begin{lstlisting}[language=Ruby]
+"mecanica celeste".length #Ruby code
+\end{lstlisting}
+
+\subsection{Arrays and Hashes}
+Los \texttt{arrays} y \texttt{hashes} de \textit{Ruby} son colecciones indexadas. Ambos tipos de datos almacenan objetos que accesibles mediante una clave. La clave de los  \texttt{arrays} son tipos enteros, mientras que los \texttt{hashes} soportan cualquier objeto como clave. Ambos crecen cuando necesitan almacenar nuevos objetos. Los \texttt{arrays} son más eficientes pero los \texttt{hashes} proporcionan mucho más flexibilidad.
+
+Se pueden crear e inicializar un nuevo \texttt{array} usando cualquier \texttt{array literal} --- conjunto de elementos en corchetes. Dado un objeto \texttt{array} , se puede acceder a los elementos individuales almacenados en el mismo proporcionando un índice entre corchetes.
+
+\begin{lstlisting}[language=Ruby]
+a = [ 1, 'cat', 3.14 ]   # array tres elementos
+
+# acceso al primer elemento
+a[0]	>>	1
+
+# asignacion de valor al tercer elemento 
+a[2] = nil
+
+# mostrar array
+a	>>	[1, "cat", nil]
+\end{lstlisting}
+
+Se pueden crear \texttt{arrays} usando cualquier \texttt{array literal}, como se mencionó previamente, o usando constructor de la clase \texttt{array}, \texttt{Array.new}.
+
+\begin{lstlisting}[language=Ruby]
+empty1 = []
+empty2 = Array.new
+\end{lstlisting}
+
+Los \texttt{hashes} de \textit{Ruby} son similares a los \texttt{arrrays}. Un \texttt{hash literal} usa llaves en vez de corchetes. El literal debe proporcionar dos objetos por cada entrada: uno para la clave y otro para el valor.
+
+\begin{lstlisting}[language=Ruby]
+instSection = {
+  'cello'     => 'string',
+  'clarinet'  => 'woodwind',
+  'drum'      => 'percussion',
+  'oboe'      => 'woodwind',
+  'trumpet'   => 'brass',
+  'violin'    => 'string'
+}
+\end{lstlisting}
+
+Para recuperar el valor de un \texttt{hash} se procede con la misma notación que los \texttt{arrays}.
+
+\begin{lstlisting}[language=Ruby]
+instSection['oboe']	>>	"woodwind"
+instSection['cello']	>>	"string"
+instSection['bassoon']	>>	nil
+\end{lstlisting}
+
+Como se muestra en el ejemplo anterior, un \texttt{hash}, por defecto, devuelve \texttt{nil} cuando es indexado con una clave que no está contenida en el \texttt{hash}.
+Para cambiar este comportamiento por defecto, se debe pasar un argumento al constructor del \texttt{hash}.
+
+\begin{lstlisting}[language=Ruby]
+histogram = Hash.new(0)
+histogram['key1']	>>	0
+histogram['key1'] = histogram['key1'] + 1
+histogram['key1']	>>	1
+\end{lstlisting}
+
+\subsection{Estructuras de control}
+\textit{Ruby} posee las estructuras de control típicas de los lenguajes de programación como instrucciones \texttt{if} y bucles \texttt{while}. \textit{Ruby} no usa llaves en los cuerpos de las instrucciones, como C o Java; sin embargo utiliza \texttt{end} para finalizar un cuerpo.
+
+\begin{lstlisting}[language=Ruby]
+if count > 10
+  puts "Try again"
+elsif tries == 3
+  puts "You lose"
+else
+  puts "Enter a number"
+end
+\end{lstlisting}
+
+De manera similar, las instrucciones \texttt{while} terminan con \texttt{end}. 
+
+\begin{lstlisting}[language=Ruby]
+while weight < 100 and numPallets <= 30
+  pallet = nextPallet()
+  weight += pallet.weight
+  numPallets += 1
+end
+\end{lstlisting}
+
+\textit{Ruby} posee \textit{statement modifiers} que son unos atajos que se pueden utilizar cuando el cuerpo de un \texttt{if} o \texttt{while} son solamente una única expresión. Simplemente se escribe la expresión seguido de \texttt{if} o \texttt{while} y la condición.
+
+\begin{lstlisting}[language=Ruby]
+if radiation > 3000
+  puts "Danger, Will Robinson"
+end
+\end{lstlisting}
+
+Esto es lo mismo que lo anterior, reescrito usando un \textit{statement modifier}.
+
+\begin{lstlisting}[language=Ruby]
+puts "Danger, Will Robinson" if radiation > 3000
+\end{lstlisting}
+
+Análogamente, un bucle \texttt{while} usando y sin usar \textit{statement modifiers}.
+
+\begin{lstlisting}[language=Ruby]
+while square < 1000
+   square = square*square
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+square = square*square  while square < 1000
+\end{lstlisting}
+
+\subsection{Expresiones regulares}
+Casi todos los tipos de datos de \textit{Ruby} son familiares para los programadores. La mayoría de lenguajes poseen cadenas de caracteres, flotantes, vectores\ldots Sin embargo, hasta la aparición de \textit{Ruby}, el soporte para expresiones regulares sólo estaba soportado en los llamados lenguajes de \textit{script}, como Perl o Python. Las expresiones regulares, aunque resulten crípticas y en ocasiones complicadas, son una poderosa herramienta para trabajar con textos.
+
+Una expresión regular es una forma de especificar un patrón de caracteres que debe corresponderse en una cadena de caracteres. En \textit{Ruby}, típicamente se crea una expresión regular escribiendo un patrón entre dos barras de slash \texttt{/}.
+
+\begin{lstlisting}[language=Ruby]
+/Perl|Python/
+\end{lstlisting}
+
+El carácter \texttt{|} se usa para separar las dos cosas que deben ser correspondidas. Los paréntesis se usan de la misma manera que expresiones aritméticas.
+\begin{lstlisting}[language=Ruby]
+/P(erl|ython)/
+\end{lstlisting}
+
+Los caracteres \texttt{+} y \texttt{*} se usan para denotar la posibilidad de la presencia  de una o muchas apariciones del mismo carácter, en el caso de \texttt{+}; y ninguna o muchas en el caso de \texttt{*}.
+
+\begin{lstlisting}[language=Ruby]
+/ab+c/ %acepta abc, abbc, abbbc, ab..bc
+/ab*c/ %acepta ac, abc, abbc, ab..bc
+\end{lstlisting}
+
+Se puede formar patrones por grupos de caracteres. Algunos de ellos son:
+\begin{description}
+\item[\textbackslash s] Se corresponde con espacios, tabulaciones, salto de linea, \ldots
+\item[\textbackslash d] Se corresponde con cualquier dígito.
+\item[\textbackslash w] Se corresponde con cualquier carácter que pueda aparecer en una palabra normal.
+\item[.] El punto es el comodín. Acepta cualquier carácter.
+\end{description}
+
+\begin{lstlisting}[language=Ruby]
+# La hora con formato como 12:34:56
+/\d\d:\d\d:\d\d/
+
+# Perl, cero o mas caracteres, despues Python
+/Perl.*Python/
+
+# Perl, uno o mas espacios, luego Python
+/Perl\s+Python/
+
+# Ruby, un espacio, seguido de Perl o Python     
+/Ruby (Perl|Python)/
+\end{lstlisting}
+
+Una vez creado el patrón de la expresión regular, se utiliza el operador \texttt{=~} para intentar corresponder un \texttt{string} contra la expresión regular. Si se encuentra el patrón en la cadena, se devuelve su posición de inicio, si no, se devuelve \texttt{nil}. Se suelen emplear las expresiones regulares como condiciones en instrucciones \texttt{if} o \texttt{while}.
+
+\begin{lstlisting}[language=Ruby]
+if line =~ /Perl|Python/
+  puts "Scripting language mentioned: #{line}"
+end
+\end{lstlisting}
+
+Otra forma útil de uso es reemplazar la parte de la cadena que casa con el patrón de la expresión regular por otro texto.
+
+\begin{lstlisting}[language=Ruby]
+# Reemplaza el primer 'Perl' con 'Ruby'
+line.sub(/Perl/, 'Ruby')
+
+# Reemplaza todos 'Python' con 'Ruby'
+line.gsub(/Python/, 'Ruby')
+\end{lstlisting}
+
+\subsection{Bloques y Iteradores}
+Los bloques en \textit{Ruby} son secciones de código que se pueden asociar de forma similar a un método a invocar. Se pueden utilizar bloques de código para implementar \textit{callbacks}, para mover bloques de código de forma más flexible que las punteros a funciones de C, y para implementar iteradores.
+
+Los bloques se denotan escribiendo código entre llaves o entre \texttt{do}\ldots\texttt{end}.
+
+\begin{lstlisting}[language=Ruby]
+{ puts "Hello" }       # bloque entre llaves
+
+do                     #
+  club.enroll(person)  # bloque do-end
+  person.socialize     #
+end                    #
+\end{lstlisting} 
+
+Una vez creado un bloque, puede ser asociado con una llamada a un método. Ese método puede invocar el bloque una o varias veces con la instrucción \texttt{yield}.
+
+\begin{lstlisting}[language=Ruby]
+#En este ejemplo se ejecuta dos veces el bloque
+def callBlock
+  yield
+  yield
+end
+
+callBlock { puts "In the block" }
+
+#Console output:
+
+In the block
+In the block
+\end{lstlisting}
+
+Los bloques de \textit{Ruby} se pueden utilizar para implementar iteradores. Iteradores son métodos que retornan elementos sucesivos desde algún tipo de colección como un \texttt{array}.
+
+\begin{lstlisting}[language=Ruby]
+# creacion del array
+a = %w( ant bee cat dog elk )
+ # iteracion sobre el array    
+a.each { |animal| puts animal } 
+
+#Console output:
+
+ant
+bee
+cat
+dog
+elk
+\end{lstlisting}
+
+Siguiendo esta técnica, es fácil entender como iterar un array.
+
+\begin{lstlisting}[language=Ruby]
+[ 'cat', 'dog', 'horse' ].each do |animal|
+  print animal, " -- "
+end
+
+#Console output:
+
+cat -- dog -- horse --
+\end{lstlisting}
+
+Muchas estructuras de bucles de otros lenguajes como C o Java están implementadas como simples llamadas a métodos en \textit{Ruby}.
+
+\begin{lstlisting}[language=Ruby]
+5.times {  print "*" }
+3.upto(6) {|i|  print i }
+('a'..'e').each {|char| print char }
+
+#Console output:
+
+*****3456abcde
+\end{lstlisting}
+
+\section{Clases, Objetos y Variables}
+Para comentar esta sección y siguiendo con el esquema de Matsumoto, vamos a suponer que se pretende desarrollar una aplicación que simule el funcionamiento de un tocadiscos con el objetivo de entender con una aproximación más directa el modo de funcionamiento de Ruby.
+
+Comenzamos creando una clase\footnote{El concepto de \textit{clase} se define como plantillas extensibles para crear objetos, proveyendo una serie de variables locales y un cuerpo para escribir sus métodos. W.B. Bruce\cite{Bruce2002}} \texttt{Song}\footnote{Los nombres de las clases deben empezar con letra mayúscula.} que contiene un único método, \texttt{initialize}\footnote{Los nombres de los métodos deben empezar con letra minúscula.}, que instanciará un objeto y asignará valores a una serie de variables instancidas\footnote{Una variable instanciada se declara con un nombre empezando por letra minúscula precedido por un símbolo \texttt{@}.}.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  def initialize(name, artist, duration)
+    @name     = name
+    @artist   = artist
+    @duration = duration
+  end
+end
+\end{lstlisting}
+
+Veamos como instanciar un objeto a partir de la clase creada anteriormente.
+
+\begin{lstlisting}[language=Ruby]
+aSong = Song.new("Never gonna give you up", "Rick Astley", 260)
+	
+aSong.inspect	>>	
+"#<Song:0x401b4924 @duration=260, @artist=\"Rick Astley\", @name=\"Never gonna give you up\">"
+\end{lstlisting}
+
+Para escribir el contenido del objeto, utilizaremos el método de \textit{Ruby}, \texttt{.to\_s} que renderiza cualquier objeto a una cadena de caracteres. Todos los objetos de \textit{Ruby} presentan una serie de métodos incluidos por defecto. \footnote{Clase \texttt{Object} de la documentación oficial de Ruby 2.3.0. Veasé la lista de métodos incluidos por defecto en la clase \texttt{Object}. \url{http://ruby-doc.org/core-2.3.0/Object.html}}
+
+\begin{lstlisting}[language=Ruby]
+aSong = Song.new("Never gonna give you up", "Rick Astley", 260)
+aSong.to_s	>>	"#<Song:0x401b499c>" 
+\end{lstlisting}
+
+No resulta útil puesto que lo único que hace es mostrar el ID del objeto. Para resolver esto, vamos a anular ``\textit{override}'' el comportamiento del método \texttt{.to\_s}.
+En \textit{Ruby}, las clases nunca están cerradas; siempre se pueden añadir métodos a una clase existente. Esto se aplica a las clases que el programador escribe como a las clases estándar que vienen por defecto en \textit{Ruby}. Para lograrlo, se abre o edita la definición de la clase de una clase existente, y se añaden los nuevos contenidos que especifica el programador a lo que hubiera previamente en la definición.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  def to_s
+    "Song: #{@name}--#{@artist} (#{@duration})"
+  end
+end
+aSong = Song.new("Never gonna give you up", "Rick Astley", 260)
+aSong.to_s	>>	"Song: Never gonna give you up--Rick Astley (260)"
+\end{lstlisting}
+
+Previamente se comentó como todos los objetos de \textit{Ruby} soportan el método \texttt{.to\_s}, la respuesta tiene que ver con herencia, por lo que será explicado en la siguiente sección.
+
+\subsection{Herencia y mensajes}
+Herencia en Orientación a Objetos es cuando una clase o un objeto está basado en otro objeto (herencia de prototipos) o en una clase (herencia basada en clases), usando la misma implementación (heredando de objeto o clase) o especificando la implementación para mantener el mismo comportamiento (realizando un interfaz; heredando comportamiento). Es un mecanismo de reutilización de código, que además, posibilita extensiones independientes del software original vía clases publicas e interfaces. Las relaciones de los objetos o clases a través de herencia propician una jerarquía. Herencia fue inventado para el lenguaje de programación Simula en 1967.\cite{MintzEkendahl2006}
+
+En el caso de \textit{Ruby}, la herencia permite crear una clase que es un refinamiento o especialización de otra clase. Siguiendo con el ejemplo de Matsumoto, se pretende dotar al tocadiscos de una funcionalidad de karaoke, por tanto, herencia de la clase \texttt{Song}; será una de las posibles aproximaciones para solventar el problema.
+
+\begin{lstlisting}[language=Ruby]
+class KaraokeSong < Song
+  def initialize(name, artist, duration, lyrics)
+    super(name, artist, duration)
+    @lyrics = lyrics
+  end
+end
+
+aSong = KaraokeSong.new("My Way", "Sinatra", 225, "And now, the...")
+
+aSong.to_s	>>	"Song: My Way--Sinatra (225)"
+\end{lstlisting}
+
+La salida por pantalla del método \texttt{.to\_s} no es lo esperado puesto, que si una clase que hereda de otra, y que hace una llamada a un método de la clase padre, obviamente ésta llamada se realizará con el comportamiento de la clase padre. Para solucionar el problema, se debe redefinir el método para que tenga el comportamiento deseado en la clase hija.
+
+\begin{lstlisting}[language=Ruby]
+class KaraokeSong
+  # ...
+  def to_s
+    "KS: #{@name}--#{@artist} (#{@duration}) [#{@lyrics}]"    
+  end
+  
+  ### O mucho mejor, y para evitar acoplamiento:
+  def to_s
+    super + " [#{@lyrics}]"
+  end
+end
+
+aSong = KaraokeSong.new("My Way", "Sinatra", 225, "And now, the...")
+
+aSong.to_s	>>	"KS: My Way--Sinatra (225) [And now, the...]"
+\end{lstlisting}
+
+\subsubsection{Herencia múltiple}
+Algunos lenguajes de Orientación a Objetos (C++ notablemente) soportan herencia múltiple, en la que una clase hereda de más de un padre inmediato. Pese a ser una herramienta muy poderosa, ésta técnica tiene riesgos ya que la jerarquía puede convertirse ambigua.
+Otros lenguajes, como Java, proporcionan herencia simple, lo que facilita y clarifica la implementación. Como contra, los objetos del mundo real tienen atributos de múltiples fuentes.
+
+\textit{Ruby} ofrece una solución de compromiso, dando la simplicidad de la herencia simple y la capacidad de herencia múltiple. \textit{Ruby} solo puede tener un padre directo, lo que lo convierte en un lenguaje de herencia simple. Sin embargo, las clases de \textit{Ruby} pueden incluir la funcionalidad de cualquier número de mixins\footnote{Un \textit{mixin} es una definición parcial.}, proporcionando una especie de herencia múltiple muy controlada pero sin sus riesgos.
+
+\subsection{Atributos}
+El estado de los objetos de la clase \texttt{Song} que se crearon anteriormente tienen un estado interno que es privado a eso objeto; ésto es bueno porque significa que el objeto es responsable de mantener su propia consistencia. 
+Sin embargo un objeto es que totalmente secreto es inútil puesto que puede ser creado pero no se puede interactuar con el mismo. Se deben definir métodos que permitan acceder y manipular el estado del objeto. Éstas facetas del objeto que son visibles desde el exterior, se denominan \textit{atributos}.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  def name
+    @name
+  end
+  def artist
+    @artist
+  end
+  def duration
+    @duration
+  end
+end
+
+aSong = Song.new("Beat it", "Michael Jackson", 260)
+
+aSong.artist	>>	"Michael Jackson"
+aSong.name	>>	"Beat it"
+aSong.duration	>>	260
+\end{lstlisting}
+
+Con el objeto de simplificar la sintaxis, \textit{Ruby} proporciona un mecanismo que permite crear estos métodos que retornan el valor de las variables instanciadas.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  attr_reader :name, :artist, :duration
+end
+
+aSong = Song.new("Beat it", "Michael Jackson", 260)
+
+aSong.artist	>>	"Michael Jackson"
+aSong.name	>>	"Beat it"
+aSong.duration	>>	260
+\end{lstlisting}
+
+\subsubsection{Atributos modificables}
+Frecuentemente es necesario poder modificar y establecer los atributos desde fuera del objeto. En lenguajes como C++ o Java, esto se lleva a cabo con \textit{setter functions}, mientras que en \textit{Ruby}, los atributos de un objetos son accesibles asignando el valor de otra variable.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  def duration=(newDuration)
+    @duration = newDuration
+  end
+end
+
+aSong = Song.new("Beat it", "Michael Jackson", 260)
+
+aSong.duration	>>	260
+aSong.duration = 257   # modificacion del valor del atributo
+aSong.duration  >>	257
+\end{lstlisting}
+
+De la misma manera, \textit{Ruby} provee un mecanismo para crear estos métodos modificadores de atributos de forma más simple.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  attr_writer :duration
+end
+
+aSong = Song.new("Beat it", "Michael Jackson", 260)
+
+aSong.duration	>>	260
+aSong.duration = 257   # modificacion del valor del atributo
+aSong.duration  >>	257
+\end{lstlisting}
+
+\subsubsection{Atributos virtuales}
+Los variables calculadas o los atributos virtuales son métodos que internamente no se corresponden con la variable instanciada pero externamente parece un atributo normal.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  def durationInMinutes
+    @duration/60.0
+  end
+  def durationInMinutes=(value)
+    @duration = (value*60).to_i
+  end
+end
+
+aSong = Song.new("Beat it", "Michael Jackson", 260)
+aSong.durationInMinutes	>>	4.333333333
+aSong.durationInMinutes = 4.2
+aSong.duration	>>	252
+\end{lstlisting}
+
+\subsection{Variables de clase y métodos de clase}
+\subsubsection{Variables de clase}
+Una variable de clase es una variable que es compartida por todos los objetos de la clase y además, accesible por todos los métodos que se describirán más adelante. Al contrario que las variables instanciadas, las variables de clase deben ser inicializadas antes de ser usadas.
+
+En nuestro ejemplo de tocadiscos, se desea conocer cuantas veces una canción ha sido tocada pero también se quiere saber cuantas canciones han sido tocadas en total.
+
+\begin{lstlisting}[language=Ruby]
+class Song
+  @@plays = 0 #variable de clase
+  def initialize(name, artist, duration)
+    @name     = name
+    @artist   = artist
+    @duration = duration
+    @plays    = 0
+  end
+  def play
+    @plays += 1
+    @@plays += 1
+    "Reproducciones: #@plays . Total reproducciones: #@@plays ."
+  end
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+s1 = Song.new("Song1", "Artist1", 234)  # test songs..
+s2 = Song.new("Song2", "Artist2", 345)
+s1.play	>>	"Reproduciones: 1. Total reproducciones: 1"
+s2.play	>>	"Reproduciones: 1. Total reproducciones: 2"
+s1.play	>>	"Reproduciones: 2. Total reproducciones: 3"
+s1.play	>>	"Reproduciones: 3. Total reproducciones: 4"
+\end{lstlisting}
+
+\subsubsection{Métodos de clase}
+Las variables de clase son privadas a la clase y a sus instancias. Los métodos de clase proveen acceso a las variables de clase desde el exterior incluso sin estar ligado a un objeto en particular. 
+Este es el caso de el método \texttt{new} que crea un nuevo objeto pero no está asociado el mismo a ningún objeto sino a la clase.\footnote{Otros ejemplos claros de métodos de clase, los encontramos en librerias de \textit{Ruby}, como por ejemplo, la clase \texttt{File}. La clase \texttt{File} provee numerosos métodos para manipular ficheros que no están abiertos y que por tanto no son un objeto de la clase \texttt{File}.}
+Los métodos de clase se distinguen de los métodos normales por su definición.
+
+\begin{lstlisting}[language=Ruby]
+class Example
+  def instMeth              # instance method
+  end
+
+  def Example.classMeth     # class method
+  end
+end
+\end{lstlisting}
+
+\subsubsection{Singletons y otros constructores}
+En \textit{Ruby} se puede modificar el comportamiento por defecto de como \textit{Ruby} crea los objetos. Supongamos que desea un \textit{log} para registrar el comportamiento de una cierta entidad. Obviamente la entidad tendrá único \textit{log}, por tanto, se debe restringir la cantidad de objetos de tipo \texttt{Logger} que se pueden construir a uno solo.\footnote{La implementación de singletons necesita una serie de mecanismos adicionales para ser segura cuando multiples hilos están siendo ejecutados.}
+
+\begin{lstlisting}[language=Ruby]
+class Logger
+  private_class_method :new 
+  #haciendolo privado, evitamos que se creen objetos utilizando el constructor por defecto. 
+  @@logger = nil
+  def Logger.create
+    @@logger = new unless @@logger
+    @@logger
+  end
+end
+
+Logger.create.id	>>	537766930
+Logger.create.id	>>	537766930
+\end{lstlisting}
+
+\subsection{Control de Acceso}
+Como sabemos, en \textit{Ruby} sólo se puede cambiar el estado del objeto a través de sus métodos, por tanto, es importante considerar el nivel de exposición del objeto hacia el exterior. \textit{Ruby} posee tres niveles de protección.
+\begin{description}
+	\item[Métodos públicos] Pueden ser llamados por cualquiera ---luego no hay control de acceso. Los métodos son siempre públicos por defecto excepto \texttt{initialize} que es siempre privado.
+	\item[Métodos protegidos] Sólo pueden ser invocados por los objetos de la clase que definen o de sus subclases. El acceso queda restringido dentro de la familia del objeto.
+	\item[Métodos privados] No pueden ser llamados externamente. Puesto que no se puede especificar cuando un objeto cuando se usan, los metodos privados solo pueden ser llamados en la definición de la clase y por sus descendientes directos dentro del mismo objeto. 
+\end{description}
+
+\textit{Ruby} difiere de otros lenguajes orientados a objetos en que el control de acceso es determinado dinamicamente, por tanto, se notifica un error de violación de acceso solamente cuando el código intenta ejecutar un método restringido.
+
+\subsubsection{Especificando el control de acceso}
+Para especificar el control de acceso, se utilizan las funciones\footnote{En \textit{Ruby} son oficialmente funciones pero pueden ser consideradas como palabras reservadas.}  \texttt{public}, \texttt{protected}, \texttt{private}. De forma similar al comportamiento de C++, después de la utilizar la palabra clave los métodos consiguientes adoptarán ese nivel de acceso. 
+
+\begin{lstlisting}[language=Ruby]
+class MyClass
+
+      def method1    # 'public' por defecto
+        #...
+      end
+
+  protected          # metodos consiguientes seran 'protected'
+
+      def method2    # 'protected'
+        #...
+      end
+
+  private            # metodos consiguientes seran 'private'
+
+      def method3    # 'private'
+        #...
+      end
+
+  public             # metodos consiguientes seran 'public'
+
+      def method4    # 'public'
+        #...
+      end
+end
+\end{lstlisting}
+
+Alternativamente, se puede establecer el nivel de control de acceso de los métodos, listándolos como argumentos de las funciones de control de acceso.
+
+\begin{lstlisting}[language=Ruby]
+class MyClass
+
+  def method1
+  end
+
+  # ... and so on
+
+  public    :method1, :method4
+  protected :method2
+  private   :method3
+end
+\end{lstlisting}
+
+\subsection{Variables}
+Una variable es un espacio de memoria asociado a un nombre símbolico, el identificador, que contiene información conocida o desconocida referida como valor. Las variables son usadas para controlar y seguir los objetos, puesto que cada variable mantiene una referencia a un objeto.\footnote{Es importante comentar que en \textit{Ruby}, una variable no es objeto. Una variable es simplemente una referencia a un objeto.}
+
+\begin{lstlisting}[language=Ruby]
+person = "Tim"
+person.id	>>	537771100
+person.type	>>	String
+person	>>	"Tim"
+\end{lstlisting}
+
+La asignación de alias a los objetos, potencialmente puede producir múltiples variables que referencian al mismo objeto lo que puede dar problemas en el código de forma similar a Java.
+
+\begin{lstlisting}[language=Ruby]
+#Codigo inseguro de "aliasing"
+person1 = "Tim"
+person2 = person1
+person1[0] = 'J'
+person1	>>	"Jim"
+person2	>>	"Jim"
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+#Codigo seguro de "aliasing"
+# El metodod dup de la clase String, crea un nuevo objeto con contenido similar.
+person1 = "Tim"
+person2 = person1.dup
+person1[0] = "J"
+person1	>>	"Jim"
+person2	>>	"Tim"
+\end{lstlisting}
+
+\section{Containers, Bloques e Iteradores}
+\subsection{Containers}
+\textit{Ruby} proporciona dos mecanismos para almacenar objetos dentro de una estructura. El tipo \texttt{Array} y el tipo \texttt{Hashes}.
+\subsubsection{Arrays}
+La clase \texttt{Array} mantiene una colección de referencias a objetos. Cada referencia a objeto ocupa una oposición del array, identificado por un índice entero no negativo.
+Los arrays pueden ser creados mediante literales\footnote{Un literal de un array es simplemente una lista de objetos dentro de corchetes.} o explicitamente creando un objeto del tipo \texttt{Array}.\footnote{Documentación de la clase \texttt{Array}, \url{http://ruby-doc.org/core-2.3.0/Array.html}}
+
+\begin{lstlisting}[language=Ruby]
+a = [ 3.14159, "pie", 99 ]
+a.type	>>	Array
+a.length	>>	3
+a[0]	>>	3.14159
+a[1]	>>	"pie"
+a[2]	>>	99
+a[3]	>>	nil
+b = Array.new
+b.type	>>	Array
+b.length	>>	0
+b[0] = "second"
+b[1] = "array"
+b	>>	["second", "array"]
+\end{lstlisting}
+
+Indexando arrays con enteros negativos, devuelve el valor comenzando desde el final, simpre y cuando, el valor absoluto del entero negativo no sea mayor que la longitud del array; en cuyo caso, se devolverá \texttt{nil}.
+
+\begin{lstlisting}[language=Ruby]
+a = [ 1, 3, 5, 7, 9 ]
+a[-1]	>>	9
+a[-2]	>>	7
+a[-99]	>>	nil
+\end{lstlisting}
+
+Se puede indexar arrays utilizando un par de números, \texttt{[start, count]}. Devuelve un nuevo array de longitud \texttt{count} con los valores del array original desde la posición \texttt{start}.
+
+\begin{lstlisting}[language=Ruby]
+a = [ 1, 3, 5, 7, 9 ]
+a[1, 3]	>>	[3, 5, 7]
+a[3, 1]	>>	[7]
+a[-3, 2]	>>	[5, 7]
+\end{lstlisting}
+
+\subsubsection{Hashes}
+Los hashes son similares a los arrays en que son colecciones de objetos indexados. Sin embargo, mientras la indexación en arrays es con enteros, los hashes pueden ser indexados con objetos de cualquier tipo. Cuando se almacena un valor en un hash, se están proveyendo dos objetos ---la clave y el valor entre llaves (\texttt{clave =>{ }valor}).\footnote{Documentación de la clase \texttt{Hash}, \url{http://ruby-doc.org/core-2.3.0/Hash.html}}
+
+\begin{lstlisting}[language=Ruby]
+h = { 'dog' => 'canine', 'cat' => 'feline', 'donkey' => 'asinine' }
+h.length	>>	3
+h['dog']	>>	"canine"
+h['cow'] = 'bovine'
+h[12]    = 'dodecine'
+h['cat'] = 99
+h	>>	{"cow"=>"bovine", "cat"=>99, 12=>"dodecine", "donkey"=>"asinine", "dog"=>"canine"}
+\end{lstlisting}
+
+Comparado con los arrays, los hashes tienen una gran ventaja: pueden usar cualquier objeto como índice. No obstante, tienen una desventaja importante, sus elementos están desordenados, por lo tanto, no se pueden crear fácilmente estructuras como pilas o colas.
+
+\subsection{Bloques e iteradores}
+Un iterador de \textit{Ruby} es simplemente un método que invoca un bloque de código. Aunque los bloques parecen asemejarse a los de C o los de Java, presentan una serie de diferencias. Primero, un bloque puede aparecer solamente adyacente a la llamada al método; el bloque está escrito empezando en la misma linea como el último parámetro del método. Segundo, el bloque de código no es ejecutado cuando es encontrado. En vez de eso, \textit{Ruby} ``recuerda'' el contexto en el que el bloque aparece\footnote{variables locales, objeto actual, \ldots}, y luego entra en el método.
+Dentro del método, el bloque puede ser invocado, casi como si fuera método por si mismo, utilizando la instrucción \texttt{yield}. Siempre que la instrucción \texttt{yield} es ejecutada, es invocado el código en el bloque.
+
+\begin{lstlisting}[language=Ruby]
+def threeTimes
+  yield
+  yield
+  yield
+end
+threeTimes { puts "Hello" }
+
+#Output:
+Hello
+Hello
+Hello
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+def fibUpTo(max)
+  i1, i2 = 1, 1        # Asignacion paralela
+  while i1 <= max
+    yield i1
+    i1, i2 = i2, i1+i2
+  end
+end
+fibUpTo(1000) { |f| print f, " " }
+
+#Output:
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+\end{lstlisting}
+
+Un bloque también puede retornar un valor al método. El valor de la última expresión evaluada en el bloque es pasado de vuelta al método como valor de la instrucción \texttt{yield}. Veamos en el siguiente fragmento de código esta última particularidad estudiando el funcionamiento de del método \texttt{find} de la clase \texttt{Array}.
+
+\begin{lstlisting}[language=Ruby]
+class Array
+  def find
+    for i in 0...size
+      value = self[i]
+      return value if yield(value)
+    end
+    return nil
+  end
+end
+[1, 3, 5, 7, 9].find {|v| v*v > 30 }	>>	7
+\end{lstlisting}
+
+Aparte de \texttt{find}, otros iteradores comunes a varios tipos de colecciones de \textit{Ruby} son: \texttt{each} y \texttt{collect}.
+
+\begin{lstlisting}[language=Ruby]
+[ 1, 3, 5 ].each { |i| puts i }
+
+#Output:
+1
+3
+5
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+["H", "A", "L"].collect { |x| x.succ }	>>	["I", "B", "M"]
+\end{lstlisting}
+
+\subsubsection{Bloques para transacciones}
+Los bloques de \textit{Ruby} pueden ser utilizados para definir un fragmento de código que debe ser ejecutado bajo ciertas condiciones de control de transacciones. Por ejemplo, después abrir un fichero y trabajar con su contenido, se debe asegurar de que el fichero es cerrado al terminar.
+
+\begin{lstlisting}[language=Ruby]
+#Esta implementacion podria realizarse con codigo convencional y no comtempla el manejo de excepciones.
+class File
+  def File.openAndProcess(*args)
+    f = File.open(*args)
+    yield f
+    f.close()
+  end
+end
+
+File.openAndProcess("testfile", "r") do |aFile|
+  print while aFile.gets
+end
+\end{lstlisting}
+
+\section{Tipos básicos}
+\subsection{Números}
+\textit{Ruby} soporta enteros y número flotantes\footnote{Documentación de la clase \texttt{Float} de \textit{Ruby} 2.3.0, \url{http://ruby-doc.org/core-2.3.0/Float.html}}. Los enteros pueden ser de cualquier longitud\footnote{Hasta el máximo determinado por la memoria libre del sistema.}.
+Los enteros que están entre cierto rango (normalmente $-2^{30}$ a $2^{30}-1$ o $-2^{62}$ a $2^{62}-1$) son mantenidos internamente en forma binaria, y son objetos de la clase \texttt{Fixnum}\footnote{Documentación de la clase \texttt{Fixnum} de \textit{Ruby} 2.3.0, \url{http://ruby-doc.org/core-2.3.0/Fixnum.html}}. Los enteros fuera de ese rango son mantenidos en objetos de la clase \texttt{Bignum}\footnote{Documentación de la clase \texttt{Bignum} de \textit{Ruby} 2.3.0, \url{http://ruby-doc.org/core-2.3.0/Bignum.html}}\footnote{La clase \texttt{Bignum} está implementada actualmente con un set de enteros cortos.}. Este proceso es transparente, y \textit{Ruby} maneja automáticamente la conversión hacia adelante y hacia atrás.
+
+\begin{lstlisting}[language=Ruby]
+num = 8
+6.times do
+  print num.type, " ", num, "\n"
+  num *= num
+end
+
+#Output:
+Fixnum 8
+Fixnum 64
+Fixnum 4096
+Fixnum 16777216
+Bignum 281474976710656
+Bignum 79228162514264337593543950336
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+#Se pueden escribir enteros con un signo opcional o con un indicador de la base.
+123456                    # Entero corto
+123_456                   # Entero corto (Guion bajo es ignorado)
+-543                      # Entero corto negativo
+123_456_789_123_345_789   # Entero largo
+0xaabb                    # Hexadecimal
+0377                      # Octal
+-0b101_010                # Binario (negado)
+\end{lstlisting}
+
+\subsection{Strings}
+En \textit{Ruby}, las cadenas de caracteres son simplemente secuencias de 8-bit bytes. Normalmente almacenan caracteres pero también pueden contener datos binarios. Las cadenas de caracteres son objetos de la clase \texttt{String}\footnote{Documentación de la clase \texttt{String} de \textit{Ruby} 2.3.0, \url{http://ruby-doc.org/core-2.3.0/String.html}}.
+
+\begin{lstlisting}[language=Ruby]
+#Caracteres de escape
+'escape using "\\"'	>>	escape using "\"
+'That\'s right'	>>	That's right
+
+#Literales de cadena entre comillas dobles
+"Seconds/day: #{24*60*60}"	>>	Seconds/day: 86400
+"#{'Ho! '*3}Merry Christmas"	>>	Ho! Ho! Ho! Merry Christmas
+"This is line #$."	>>	This is line 3
+
+#Otras formas de crear literales
+%q/general single-quoted string/	>>	general single-quoted string
+%Q!general double-quoted string!	>>	general double-quoted string
+%Q{Seconds/day: #{24*60*60}}	>>	Seconds/day: 86400
+\end{lstlisting}
+
+\subsection{Rangos}
+\textit{Ruby} intenta ayudar a modelizar la realidad, por lo tanto, es natural que \textit{Ruby} soporte rangos. De hecho, \textit{Ruby} usa rangos para implementar tres características separadas: secuencias, condiciones, e intervalos.
+
+\subsubsection{Rangos como secuencias}
+El uso más natural de los rangos es para expresar secuencias. Las secuencias tiene un punto de inicio y punto de fin, y una manera de producir sucesivos valores en la secuencia. En \textit{Ruby}, las secuencias son creadas usando los operadores de rango ``..'' y ``...''. La forma ``dos-puntos'' se utiliza para crear un rango inclusivo, mientras que la forma ``tres-puntos'' crea un rango que excluye el valor más alto especificado.
+
+\begin{lstlisting}[language=Ruby]
+1..10
+'a'..'z'
+0...anArray.length  
+\end{lstlisting}  
+
+En \textit{Ruby}, los rangos no son representados internamente como listas. La secuencia 1..1000000 es mantenida como un objeto \texttt{Range}\footnote{Documentación de la clase \texttt{Range} de \textit{Ruby} 2.3.0, \url{http://ruby-doc.org/core-2.3.0/Range.html}} que contiene dos referencias a objetos de la clase \texttt{Fixnum}.
+
+\begin{lstlisting}[language=Ruby]
+#Se puede convertir un objeto de la clase Range a una lista usando el metodo to_a.
+(1..10).to_a	>>	[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+('bar'..'bat').to_a	>>	["bar", "bas", "bat"]
+\end{lstlisting}
+
+La clase \texttt{Range} implementa métodos que permiten iterar sobre los rangos y sus contenidos.
+
+\begin{lstlisting}[language=Ruby]
+digits = 0..9
+digits.include?(5)	>>	true
+digits.min	>>	0
+digits.max	>>	9
+digits.reject {|i| i < 5 }	>>	[5, 6, 7, 8, 9]
+digits.each do |digit|
+  dial(digit)
+end
+\end{lstlisting}
+
+Los rangos no se quedan limitados a tipos numéricos o cadenas de caracteres; en \textit{Ruby}, como se puede esperar de un lenguaje orientado a objetos, se pueden crear rangos de objetos definidos por el programador. La única constante es que los objetos deben responder al método \texttt{succ}, retornando el siguiente objeto de la secuencia y los objetos deben ser comparables usando operadores de comparación (\texttt{<=>}).
+
+\begin{lstlisting}[language=Ruby]
+#Implementacion de una clase que representa una fila de caracteres #.
+class VU
+
+  include Comparable
+
+  attr :volume
+
+  def initialize(volume)  # 0..9
+    @volume = volume
+  end
+
+  def inspect
+    '#' * @volume
+  end
+
+  # Support for ranges
+
+  def <=>(other)
+    self.volume <=> other.volume
+  end
+
+  def succ
+    raise(IndexError, "Volume too big") if @volume >= 9
+    VU.new(@volume.succ)
+  end
+end
+
+#Output:
+#Testeo creando un rango de objetos vu.
+
+medium = VU.new(4)..VU.new(7)
+medium.to_a	>>	[####, #####, ######, #######]
+medium.include?(VU.new(3))	>>	false
+\end{lstlisting}
+
+\subsubsection{Rangos como condiciones}
+De la misma manera que los rangos representan secuencias, los rangos también pueden ser utilizados como expresiones condicionales. 
+
+\begin{lstlisting}[language=Ruby]
+#Ejemplo de un rango que implementa una condicion.
+#El codigo imprime un grupo de lineas de la entrada estandar, donde la primera linea de cada grupo que contiene la parabra "start" y en la que la ultima linea contenga la palabra "end".
+while gets
+  print if /start/../end/
+end
+\end{lstlisting}
+
+\subsubsection{Rangos como intervalos}
+El último uso de los rangos son los intervalos. Se pueden comprobar si cierto valor está dentro de un intervalo representado por un rango. Se realiza mediante el operador ``===''.
+
+\begin{lstlisting}[language=Ruby]
+(1..10)    === 5	>>	true
+(1..10)    === 15	>>	false
+(1..10)    === 3.14159	>>	true
+('a'..'j') === 'c'	>>	true
+('a'..'j') === 'z'	>>	false
+\end{lstlisting}
+
+\subsection{Expresiones regulares}
+Expresiones regulares son utilizadas para probar patrones contra cadenas de caracteres. Las expresiones regulares son objetos de la clase \texttt{Regexp}\footnote{Documentación de la clase \texttt{Regexp} de \textit{Ruby} 2.3.0, \url{http://ruby-doc.org/core-2.3.0/Regexp.html}} y pueden ser creados mediante la llamada explicita al constructor o mediante el uso de la forma literal /pattern/ y \%\textbackslash{}pattern\textbackslash{}.
+
+\begin{lstlisting}[language=Ruby]
+a = Regexp.new('^\s*[a-z]')	>>	/^\s*[a-z]/
+b = /^\s*[a-z]/	>>	/^\s*[a-z]/
+c = %r{^\s*[a-z]}	>>	/^\s*[a-z]/
+\end{lstlisting}
+
+Una vez creado un objeto de expresión regular, se puede comprobar contra una cadena utilizando \texttt{Regexp\#match(aString)} o con los operadores de casamiento\footnote{\texttt{=\textasciitilde{}}, para comprobación positiva; \texttt{!\textasciitilde{}}, para comprobación negativa.}.
+
+\begin{lstlisting}[language=Ruby]
+a = "Fats Waller"
+a =~ /a/	>>	1
+a =~ /z/	>>	nil
+a =~ "ll"	>>	7 
+\end{lstlisting}
+
+La comprobación de la cadena de caracteres contra la expresión regular devuelve \texttt{nil} si no se produce coincidencia o si se produce coincidencia, la posición del primer carácter de donde la coincidencia se ha producido.
+
+\subsubsection{Patrones}
+Toda expresión regular contiene un patrón, que es usado para casar la expresión regular contra una cadena de caracteres.
+Dentro de un patrón, todos los caracteres excepto , y \texttt{?}, coinciden con ellos mismos. Si se pretende utilizar uno de esos caracteres especiales, deben de ir precedidos de una barra invertida \textit{\textbackslash{}}.
+
+\subsubsection{Anchors}
+Por defecto, una expresión regular intentará encontrar la primera coincidencia del patrón sobre la cadena de caracteres. Los patrones \texttt{\textasciicircum{}} y \texttt{\$} comprueban el principio y el final de linea, respectivamente. Estos son frecuentemente utilizados como \textit{anchor} de un patrón.
+\begin{description}
+	\item[\textbackslash{}A] coincide con el principio de una cadena.
+	\item[\textbackslash{}z y \textbackslash{}Z] coincide el final de una cadena si la cadena no termina con \textit{\textbackslash{}n}, en cuyo caso, coincidirá hasta antes de \textit{\textbackslash{}n}.
+	\item[\textbackslash{}b] puede coincidir con inicio de palabra.
+	\item[\textbackslash{}B] puede coincidir con una subcadena dentro de una palabra. 
+\end{description}
+
+\subsubsection{Clases de caracteres}
+Una clase de carácter es un grupo de caracteres entre corchetes que coincidirá con cualquier carácter incluido entre esos corchetes. Existen algunas abreviaciones de los caracteres de clase.
+
+\begin{center}
+	\begin{tabular}{| l | c | r |}
+		\hline
+		\textbackslash{}d & [0-9] & Carácter de dígito \\ \hline
+		\textbackslash{}D & [\textasciicircum{}0-9] & Carácter de no-dígito \\ \hline
+		\textbackslash{}s & [\textbackslash{}s\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f] & Carácter de espacio \\ \hline
+		\textbackslash{}S & [\textasciicircum{}\textbackslash{}s\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f] & Carácter de no-espacio \\ \hline
+		\textbackslash{}w & [A-Za-z0-9\_] & Carácter de palabra \\ \hline
+		\textbackslash{}W & [\textasciicircum{}A-Za-z0-9\_] & Carácter de no palabra \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\section{Métodos}
+Otros lenguajes de programación poseen funciones, procedimientos, métodos o rutinas, pero en \textit{Ruby} sólo existe \textit{el método}, un bloque de expresiones que retornan un valor.
+
+\subsection{Definiendo un método}
+Como se ha visto a lo largo del capitulo, un método se define utilizando la palabra clave \texttt{def}. Los nombres de los métodos deben empezar con una letra minúscula.\footnote{No se recibe un error inmediatamente si se usa una letra mayúscula, pero cuando \textit{Ruby} detecta que se está llamando al método, primero supone que es una constante, y no una invocación a un método, y como resultado la llamada puede ser analizada gramaticalmente erronea.} Los métodos que actúan como consulta son frecuentemente llamados con el sufijo \texttt{?}. Los métodos que son ``peligrosos'', o que modifican los datos que reciben; pueden ser llamados con el sufijo \texttt{!}\footnote{Por ejemplo, \texttt{String} proporciona \texttt{chop} y \texttt{chop!}. El primero retorna la cadena modificada y el segundo modifica la cadena directamente.}.
+
+\begin{lstlisting}[language=Ruby]
+def myNewMethod(arg1, arg2, arg3)     # 3 argumentos
+  # Code for the method would go here
+end
+
+def myOtherNewMethod                  # No argumentos
+  # Code for the method would go here
+end
+\end{lstlisting}
+
+\textit{Ruby} permite especificar valores por defecto a los argumentos de los métodos ---valores que se serán usados si cuando se invoca no se pasan explicitamente.
+
+\begin{lstlisting}[language=Ruby]
+def coolDude(arg1="Miles", arg2="Coltrane", arg3="Roach")
+  "#{arg1}, #{arg2}, #{arg3}."
+end
+coolDude	>>	"Miles, Coltrane, Roach."
+coolDude("Bart")	>>	"Bart, Coltrane, Roach."
+coolDude("Bart", "Elwood")	>>	"Bart, Elwood, Roach."
+coolDude("Bart", "Elwood", "Linus")	>>	"Bart, Elwood, Linus."
+\end{lstlisting}
+
+\subsection{Invocación del método}
+Para invocar un método se especifica un receptor, el nombre del método, y de forma opcional algunos parámetros y un bloque asociado. Si se omite el receptor, por defecto, \textit{Ruby} presupone que \texttt{self} es el objeto actual.
+
+\begin{lstlisting}[language=Ruby]
+connection.downloadMP3("jitterbug") { |p| showProgress(p) }
+
+#Para metodos de clases o de modulos, el receptor es la clase o el nombre del modulo.
+File.size("testfile")
+Math.sin(Math::PI/4)
+
+#Se omite el receptor.
+self.id	>>	537794160
+id	>>	537794160
+self.type	>>	Object
+type	>>	Object
+\end{lstlisting}
+
+Los parámetros opcionales van seguidos del nombre del método. Si no hay ambigüedad, se pueden omitir los paréntesis que rodean a la lista de argumentos cuando se llama al método.\footnote{Algunas documentaciones de \textit{Ruby} se refieren a las llamadas a métodos con argumentos sin paréntesis como ``comandos''.}
+
+\begin{lstlisting}[language=Ruby]
+a = obj.hash    # Lo mismo
+a = obj.hash()  # que esto.
+
+obj.someMethod "Arg1", arg2, arg3   # Misma resultado
+obj.someMethod("Arg1", arg2, arg3)  # que con parentesis.
+\end{lstlisting}
+
+\section{Expresiones}
+Una expresión es una combinación de uno o más valores, constantes, funciones, variables operadores, y funciones que el lenguaje de programación interpreta, siguiendo unas reglas de precedencia y asociación particulares, y computa para producir otro valor.
+
+En \textit{Ruby}, se considera expresión cualquier cosa que razonablemente retorna una valor, de hecho, algunas de las instrucciones de C o Java son expresiones en Ruby.
+
+\begin{lstlisting}[language=Ruby]
+#Por ejemplo, if o case retornan el valor de la ultima expresion ejecutada.
+songType = if song.mp3Type == MP3::Jazz
+             if song.written < Date.new(1935, 1, 1)
+               Song::TradJazz
+             else
+               Song::Jazz
+             end
+           else
+             Song::Other
+           end
+
+ rating = case votesCast
+          when 0...10    then Rating::SkipThisOne
+          when 10...50   then Rating::CouldDoBetter
+          else                Rating::Rave
+          end
+\end{lstlisting}
+
+\subsection{Operadores}
+\textit{Ruby} tiene el set básico de operadores (+, -, *, /, \ldots). En \textit{Ruby}, muchos operadores son realmente llamadas a métodos. Cuando se escribe \texttt{a*b+c}, se está realmente pidiendo que el objeto referenciado por\texttt{a} ejecute el método \texttt{*}, pasando el parámetro \texttt{b}. Después se pide al objeto el resultado del cálculo de ejecutar \texttt{+}, pasando \texttt{c} como parámetro. En \textit{Ruby} todo es un objeto, hasta tal punto que se pueden redefinir los operadores.
+
+\begin{lstlisting}[language=Ruby]
+#Redefinicion del operador suma.
+class Fixnum
+  alias oldPlus +
+  def +(other)
+    oldPlus(other).succ
+  end
+end
+
+1 + 2	>>	4
+a = 3
+a += 4	>>	8
+\end{lstlisting}
+
+Más útil es el hecho de que las clases pueden participar en expresiones como si fueran construidas por defecto.
+
+\begin{lstlisting}[language=Ruby]
+#En este ejemplo, redefinimos el operador de indexacion [] para que retorne una seccion de una cancion.
+
+class Song
+  def [](fromTime, toTime)
+    result = Song.new(self.title + " [extract]",
+                      self.artist,
+                      toTime - fromTime)
+    result.setStartTime(fromTime)
+    result
+  end
+end
+
+aSong[0, 0.15].play
+\end{lstlisting}
+
+\subsection{Otras expresiones}
+Ademas de las expresiones obvias, las llamadas métodos y las expresiones de instrucción, \textit{Ruby} tiene más cosas que pueden ser utilizadas como expresiones.
+
+\subsubsection{Comandos}
+Si se encapsula una cadena de caracteres en comillas invertidas o usando el prefijo \texttt{\%x}, se ejecutará, por defecto, como comando sobre el sistema operativo en que se esté ejecutando. El valor de la expresión es la salida estándar del comando.
+
+\begin{lstlisting}[language=Ruby]
+`date`	>>	"Sun Jun  9 00:08:26 CDT 2002\n"
+`dir`.split[34]	>>	"lib_singleton.tip"
+%x{echo "Hello there"}	>>	"Hello there\n"
+for i in 0..3
+  status = `dbmanager status id=#{i}`
+  # ...
+end
+\end{lstlisting}
+
+\subsection{Asignación}
+Una asignación establece una variable o atributo de la parte izquierda, el valor de la parte derecha; y devuelve ese valor como resultado de la expresión de asignación. 
+
+\begin{lstlisting}[language=Ruby]
+a = b = 1 + 2 + 3
+a	>>	6
+b	>>	6
+a = (b = 1 + 2) + 3
+a	>>	6
+b	>>	3
+File.open(name = gets.chomp)
+\end{lstlisting}
+
+Las dos formas básicas de asignación en \textit{Ruby} son:
+\begin{enumerate}
+	\item Asignación de la referencia de un objeto a una variable o constante.
+	\item Asignación de un atributo de un objeto o elemento de referencia en la parte derecha.
+\end{enumerate}
+
+\subsubsection{Asignación paralela}
+Las asignaciones en paralelo de \textit{Ruby} son efectuadas de forma eficiente, los valores asignados no son afectados por la asignación en si misma. Los valores en la parte derecha son evaluados en el orden en el cual aparecen antes de que se realice la asignación a las variables o atributos de la derecha.
+
+\begin{lstlisting}[language=Ruby]
+x = 0	>>	0
+a, b, c   =   x, (x += 1), (x += 1)	>>	[0, 1, 2]
+\end{lstlisting}
+
+Cuando una asignación tiene más de un valor de la parte izquierda, la expresión de asignación devuelve un vector de los valores de los valores de la derecha. Si una asignación tiene mas valores en la izquierda que en la derecha, los valores de la izquierda sobrantes son inicializados como \texttt{nil}. Por el contrario, si una asignación contiene más valores en la derecha que en la izquierda, los valores de la derecha sobrantes son ignorados.
+
+\subsubsection{Asignaciones anidadas}
+Las asignaciones paralelas de \textit{Ruby} propician las asignaciones anidadas. La parte de la izquierda de la asignación puede contener una lista de términos entre paréntesis. \textit{Ruby} extrae la parte correspondiente del valor de la derecha, y lo asigna a los términos entre paréntesis, antes de continuar con la asignación del nivel superior.
+
+\begin{lstlisting}[language=Ruby]
+b, (c, d), e = 1,2,3,4	>>	b == 1,	c == 2,	d == nil,	e == 3
+b, (c, d), e = [1,2,3,4]	>>	b == 1,	c == 2,	d == nil,	e == 3
+b, (c, d), e = 1,[2,3],4	>>	b == 1,	c == 2,	d == 3,	e == 4
+b, (c, d), e = 1,[2,3,4],5	>>	b == 1,	c == 2,	d == 3,	e == 5
+b, (c,*d), e = 1,[2,3,4],5	>>	b == 1,	c == 2,	d == [3, 4],	e == 5
+\end{lstlisting}
+
+\subsection{Ejecución condicional}
+\textit{Ruby} presenta diferentes mecanismos para la ejecución condicional de código; muchos de ellos resultan similares a otros lenguajes y otros tienen algunas peculiaridades. 
+
+\subsubsection{Expresiones booleanas}
+\textit{Ruby} tiene una simple definición de verdad. Cualquier valor que no es \texttt{nil} o la constante \texttt{false} es verdadero. El número cero no está interpretado como un valor falso, como tampoco una cadena de caracteres de longitud cero.
+
+\subsubsection{Operadores booleanos}
+\textit{Ruby} soporta todos los operadores booleanos estándar (\texttt{and}, \texttt{or}, \texttt{not}), e introduce un operador nuevo \texttt{defined?}.
+
+\begin{description}
+	\item[\texttt{and} y \texttt{\&\&}] Ambos operadores evalúan como \texttt{true} solo si ambos operandos son verdaderos. Además solo evalúan el segundo operando so si el primero es cierto. La única diferencia entre ellos es la precedencia, \texttt{and} tiene menos prioridad que \texttt{\&\&}.
+	\item[\texttt{or} y \texttt{||}] De forma similar, evalúan a verdadero si uno de los dos operandos son ciertos. Solo se evalúa el segundo operando si el primero es falso. Análogamente al operador \texttt{and}, la única diferencia entre \texttt{or} y \texttt{\&\&}, es la precedencia.\footnote{\texttt{and} y \texttt{or} tienen la misma precedencia, mientras que \texttt{\&\&} tiene una precedencia más alta que \texttt{||}.}
+	\item[\texttt{not} y \texttt{!}] Retornan el opuesto de su operando. Solo se diferencian es su precedencia.
+	\item[\texttt{defined?}] retorna \texttt{nil} si su argumento no está definido, si no, devuelve una descripción del argumento.
+\end{description}
+
+\begin{center}
+	\begin{tabular}{ | p{2cm} | p{10cm} | }
+		\hline
+		\multicolumn{2}{|c|}{Operadores de comparación} \\
+		\hline
+		\texttt{==} & Comprueba la igualdad de los operandos. \\
+		\texttt{===} & Usado para comprobar la igualdad dentro de una clausula \texttt{when} de una instrucción \texttt{case}. \\
+		\texttt{<=>} & Operador de comparación general. Devuelve \texttt{-1}, \texttt{0}, o \texttt{+1}, dependiendo si lo recibido es menor, igual o mayor, respectivamente. \\		
+		\texttt{<}, \texttt{<=}, \texttt{>=}, \texttt{>} & Operadores de comparación, menor, menor o igual, mayor o igual, mayor, respectivamente. \\
+		\texttt{=\textasciitilde{}} & Patrón de coincidencia con expresión regular. \\
+		\texttt{eql?} & Verdadero si el receptor y el argumento tienen ambos el mismo valor y tipo. \texttt{1 == 1.0} es verdadero pero \texttt{1.eql?(1.0)} es falso. \\
+		\texttt{equal?} & Verdadero si el receptor y el argumento tienen el mismo id de objeto. \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Expresiones If y Unless}
+En \textit{Ruby}, \texttt{if} es una expresión con sintaxis similar a la instrucción \texttt{if} de otros lenguajes.
+
+\begin{lstlisting}[language=Ruby]
+if aSong.artist == "Gillespie" then
+  handle = "Dizzy"
+elsif aSong.artist == "Parker" then
+  handle = "Bird"
+else
+  handle = "unknown"
+end
+
+#Si se agrupan las instrucciones if en diferentes lineas, se puede omitir el then
+if aSong.artist == "Gillespie"
+  handle = "Dizzy"
+elsif aSong.artist == "Parker"
+  handle = "Bird"
+else
+  handle = "unknown"
+end
+
+#Ruby soporta el estilo de C
+cost = aSong.duration > 180 ? .35 : .25
+\end{lstlisting}
+\textit{Ruby} también tiene una forma negada de la expresión \texttt{if}, \texttt{unless}.
+
+\begin{lstlisting}[language=Ruby]
+unless aSong.duration > 180 then
+  cost = .25
+else
+  cost = .35
+end
+\end{lstlisting}
+
+\subsection{Expresión Case}
+En \textit{Ruby}, \texttt{case} compara la expresión después de la palabra clave \texttt{case} con cada una de las expresiones de comparación después de la palabra clave \texttt{when}. 
+\begin{lstlisting}[language=Ruby]
+case inputLine
+
+  when "debug"
+    dumpDebugInfo
+    dumpSymbols
+
+  when /p\s+(\w+)/
+    dumpVariable($1)
+
+  when "quit", "exit"
+    exit
+
+  else
+    print "Illegal command: #{inputLine}"
+end
+\end{lstlisting}
+
+Análogamente a la expresión \texttt{if}, case retorna el valor de la ultima expresión ejecutada, por tanto, se necesita la palabra clave \texttt{then} si la expresión esta en la misma linea que la condición.
+
+\begin{lstlisting}[language=Ruby]
+kind = case year
+         when 1850..1889 then "Blues"
+         when 1890..1909 then "Ragtime"
+         when 1910..1929 then "New Orleans Jazz"
+         when 1930..1939 then "Swing"
+         when 1940..1950 then "Bebop"
+         else                 "Jazz"
+       end
+\end{lstlisting}
+
+\subsection{Bucles}
+\textit{Ruby} tiene los bucles típicos de cualquier otro lenguaje de programación.
+
+El bucle \texttt{while} ejecuta su cuerpo cero o más veces siempre y cuando la condición es verdadera.
+
+\begin{lstlisting}[language=Ruby]
+while gets
+  # ...
+end
+\end{lstlisting}
+
+Existe también la forma negada que excluye el cuerpo si la condición se hace cierta.
+
+\begin{lstlisting}[language=Ruby]
+until playList.duration > 60
+  playList.add(songList.pop)
+end
+\end{lstlisting}
+
+Cuando \texttt{while} y \texttt{unless} son usados como modificadores de una instrucción \texttt{begin}\textbackslash{}\texttt{end}, el código del bloque siempre se ejecutará al menos una vez, independientemente de la expresión booleana.
+
+\begin{lstlisting}[language=Ruby]
+ 
+print "Hola\n" while false
+begin
+  print "Hasta luego\n"
+end while false
+
+#Output:
+Hasta luego
+\end{lstlisting}
+
+\subsubsection{Iteradores}
+\textit{Ruby} no tiene un bucle \texttt{for}, al menos no del tipo que se pudieran encontrar en C o Java. \textit{Ruby} no necesita bucles sofisticados, puesto que todo se puede implementar a través de iteradores. \textit{Ruby} usa métodos definidos en varias clases incorporadas al lenguaje para proporcionar una funcionalidad equivalente pero menos propensión a errores.
+
+\begin{lstlisting}[language=Ruby]
+3.times do
+  print "Ho! "
+end
+
+#Output:
+Ho! Ho! Ho!
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+0.upto(9) do |x|
+  print x, " "
+end
+
+#Output:
+0 1 2 3 4 5 6 7 8 9
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+0.step(12, 3) {|x| print x, " " }
+
+
+0 3 6 9 12
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+[ 1, 1, 2, 3, 5 ].each {|val| print val, " " }
+
+#Output:
+1 1 2 3 5
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+loop {
+  # codigo ...
+}
+
+#Se ejecutara infinitamente
+\end{lstlisting}
+
+\subsubsection{For ... In}
+Este bucle \texttt{for} es diferente a los de C o Java. Este bucle pretende simplemente mejorar la sintaxis del lenguaje si no se quiere utilizar \texttt{each}. La única diferencia entre el bucle \texttt{each} y \texttt{for} es el alcance de las variables locales definidas en el cuerpo.
+
+\begin{lstlisting}[language=Ruby]
+for aSong in songList
+  aSong.play
+end
+
+#Ruby lo traduce en:
+
+songList.each do |aSong|
+  aSong.play
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+for i in ['fee', 'fi', 'fo', 'fum']
+  print i, " "
+end
+for i in 1..3
+  print i, " "
+end
+for i in File.open("ordinal").find_all { |l| l =~ /d$/}
+  print i.chomp, " "
+end
+
+fee fi fo fum 1 2 3 second third
+\end{lstlisting}
+
+\subsubsection{Break, Redo, Next}
+El estructuras de control de bucles \texttt{break}, \texttt{redo} y \texttt{next} permiten alterar el flujo normal de un bucle o iterador.
+\begin{description}
+	\item[\texttt{break}] Termina inmediatamente el bucle, y resume a la próxima instrucción después del bloque.
+	\item[\texttt{redo}] Repite la iteración del bucle desde el principio, pero sin revaluar la condición.
+	\item[\texttt{next}] Salta al final del bucle para empezar la siguiente iteración. 
+\end{description}
+
+\begin{lstlisting}[language=Ruby]
+while gets
+  next if /^\s*#/   # saltar comentarios
+  break if /^END/   # parar al final
+                    # sustituir and probar de nuevo
+  redo if gsub!(/`(.*?)`/) { eval($1) }
+end
+\end{lstlisting}
+
+\subsubsection{Retry}
+La expresión \texttt{redo} provoca que un bucle repita la iteración actual, pero a veces, se necesita que se repita el bucle desde el principio del todo. La instrucción \texttt{retry} hace justo eso.
+
+\begin{lstlisting}[language=Ruby]
+for i in 1..100
+  print "Now at #{i}. Restart? "
+  retry if gets =~ /^y/i
+end
+
+#Ouput:
+Now at 1. Restart? n
+Now at 2. Restart? y
+Now at 1. Restart? n
+ . . .
+\end{lstlisting}

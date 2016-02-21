@@ -1,0 +1,47 @@
+\begin{thebibliography}{1}
+
+\bibitem{Matsumoto1999}
+Y.~Matsumoto, ``Email de {M}atsumoto con asunto ``{H}istory of {R}uby'' en
+  ruby-talk.''
+  \url{http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/382}, 1999.
+\newblock Accedido: 20-01-2016.
+
+\bibitem{Sieger2006}
+N.~Sieger, ``Rubyconf: History of ruby.''
+  \url{http://blog.nicksieger.com/articles/2006/10/20/rubyconf-history-of-ruby},
+  2006.
+\newblock Accedido: 23-01-2016.
+
+\bibitem{Venners2003}
+B.~Venners, ``A conversation with {Y}ukihiro {M}atsumoto.''
+  \url{http://www.artima.com/intv/ruby.html}, 2003.
+\newblock Accedido: 25-01-2016.
+
+\bibitem{Bruce2002}
+K.~B. Bruce, {\em Foundations of object-oriented languages: types and
+  semantics}, capítulo~2.1, p.~18.
+\newblock The MIT Press, 2002.
+
+\bibitem{MintzEkendahl2006}
+M.~Mintz y R.~Ekendahl, {\em Hardware Verification with C++: A Practitior's
+  Handbook}, p.~22.
+\newblock Springer, 2006.
+
+\bibitem{RubyThomasHansson2013}
+S.~Ruby, D.~Thomas, y D.~Hansson, {\em Agile Web Development with Rails 4
+  (Pragmatic Programmers)}, capítulo~Introducción.
+\newblock The Pragmatic Bookshelf, 2013.
+
+\bibitem{Hansson2006}
+L.~Grimmer, ``Interview with {D}avid {H}einemeier {H}ansson from {R}uby on
+  {R}ails,'' 2006.
+
+\bibitem{Hansson2006a}
+D.~H. Hansson, ``{R}uby on {R}ails will ship with {OS X} 10.5 ({L}eopard),''
+  2006.
+
+\bibitem{Fowler2002}
+M.~Fowler, {\em Patterns of Enterprise Application Architecture}, p.~160.
+\newblock Addison-Wesley Professional, 2002.
+
+\end{thebibliography}

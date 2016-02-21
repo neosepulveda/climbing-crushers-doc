@@ -1,0 +1,74 @@
+@InBook{Bruce2002,
+author = {Kim B. Bruce},
+title = {Foundations of object-oriented languages: types and semantics},
+chapter = {2.1},
+pages = {18},
+publisher = {The MIT Press},
+year = {2002}
+}
+
+@Misc{Matsumoto1999,
+author = {Yukihiro Matsumoto},
+title = {Email de {M}atsumoto con asunto ``{H}istory of {R}uby'' en ruby-talk},
+year = {1999},
+howpublished = {\url{http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/382}},
+note = {Accedido: 20-01-2016}
+}
+
+@Misc{Sieger2006,
+author = {Nick Sieger},
+title = {RubyConf: History of Ruby},
+howpublished = {\url{http://blog.nicksieger.com/articles/2006/10/20/rubyconf-history-of-ruby}},
+year = {2006},
+note = {Accedido: 23-01-2016}
+}
+
+@Misc{Venners2003,
+author = {Bill Venners},
+title = {A Conversation with {Y}ukihiro {M}atsumoto},
+year = {2003},
+howpublished = {\url{http://www.artima.com/intv/ruby.html}},
+note = {Accedido: 25-01-2016}
+}
+
+@InBook{MintzEkendahl2006,
+author = {M. Mintz and R. Ekendahl},
+title = {Hardware Verification with C++: A Practitior's Handbook},
+publisher = {Springer},
+year = {2006},
+pages = {22},
+}
+
+@Misc{Hansson2006,
+author = {Lenz Grimmer},
+title = {Interview with {D}avid {H}einemeier {H}ansson from {R}uby on {R}ails},
+year = {2006},
+url = {https://web.archive.org/web/20130225091835/http://dev.mysql.com/tech-resources/interviews/david-heinemeier-hansson-rails.html},
+language = {Inglés},
+organization = {MySQL AB},
+}
+
+@Misc{Hansson2006a,
+author = {David Heinemeier Hansson},
+title = {{R}uby on {R}ails will ship with {OS X} 10.5 ({L}eopard)},
+year = {2006},
+url = {http://weblog.rubyonrails.org/2006/8/7/ruby-on-rails-will-ship-with-os-x-10-5-leopard/},
+language = {Inglés},
+organization = {Rails},
+}
+
+@InBook{RubyThomasHansson2013,
+author = {S. Ruby and D. Thomas and D.H. Hansson},
+title = {Agile Web Development with Rails 4 (Pragmatic Programmers)},
+chapter = {Introducción},
+publisher = {The Pragmatic Bookshelf},
+year = {2013},
+}
+
+@InBook{Fowler2002,
+author = {Martin Fowler},
+title = {Patterns of Enterprise Application Architecture},
+publisher = {Addison-Wesley Professional},
+year = {2002},
+pages = {160}
+}

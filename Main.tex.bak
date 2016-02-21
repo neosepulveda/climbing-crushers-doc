@@ -1,0 +1,111 @@
+\documentclass[a4paper,openright,12pt]{report}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % graficos
+\usepackage{cite}
+\usepackage{hyperref}
+
+\usepackage{listings}             % Include the listings-package
+
+\usepackage{color}
+\usepackage[table]{xcolor}
+
+\definecolor{mycomments}{rgb}{0,0.6,0}
+\definecolor{mybackground}{rgb}{0.96,0.96,0.96}
+\definecolor{mycode}{rgb}{0.1,0.1,0.1}
+\definecolor{mykeywords}{rgb}{0,0.4,0.95}
+\definecolor{mystrings}{rgb}{1,0.5,0.1}
+
+\definecolor{tableheading}{rgb}{0.80,0.80,0.80}
+
+\lstloadlanguages{Ruby}
+
+\lstset{%
+backgroundcolor=\color{mybackground},
+basicstyle=\ttfamily\color{mycode},
+commentstyle = \ttfamily\color{mycomments},
+keywordstyle=\ttfamily\color{mykeywords},
+stringstyle=\color{mystrings},
+numbers=none,
+breaklines=true,
+frame=L,
+captionpos=b,
+showstringspaces=false,
+literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1 
+}
+
+
+
+\setcounter{secnumdepth}{3} %para que ponga 1.1.1.1 en subsubsecciones
+\setcounter{tocdepth}{3} % para que ponga subsubsecciones en el indice
+
+\newcommand\fnurl[2]{%
+\footnote{{#1} \url{#2}}%
+}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+
+\begin{document}
+
+\input{parts/portada}
+
+% para crear una cara en blanco
+\newpage
+$\ $
+\thispagestyle{empty} % para que no se numere esta página
+
+\chapter*{}
+\input{parts/dedicatoria}
+
+\chapter*{Agradecimientos} % si no queremos que añada la palabra "Capitulo"
+\input{parts/agradecimientos}
+
+
+\chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
+\input{parts/resumen}
+
+\tableofcontents % indice de contenidos
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de cuadros} % para que aparezca en el indice de contenidos
+\listoftables % indice de tablas 
+
+\chapter{Introducción}\label{cap.introduccion}
+%\addcontentsline{toc}{chapter}{Introducción} % si queremos que aparezca en el índice
+\pagenumbering{arabic}
+\input{parts/chapters/introduccion}
+
+\chapter{Ruby}\label{cap.ruby}
+\input{parts/chapters/ruby}
+
+\chapter{Rails}\label{cap.rails}
+\input{parts/chapters/rails}
+\input{parts/chapters/rails2}
+
+%\chapter{Tema 1}\label{cap.tema 1}
+%\addcontentsline{toc}{chapter}{Capitulo 1} % si queremos que aparezca en el índice
+%\input{parts/chapters/chapter01}
+
+
+\chapter{Conclusión}\label{cap.conclusion}
+%\addcontentsline{toc}{chapter}{Conclusión} % si queremos que aparezca en el índice
+El final de la historia es sorprendente...
+
+\appendix
+\chapter{Más cosas}\label{aped.A}
+Aún faltan cosas por decir.
+
+\chapter{Y más cosas aún}\label{aped.B}
+Y más cosas aún.
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{IEEEtr2} % estilo de la bibliografía.
+\bibliography{bibliografia} % bibliografia.bib es el fichero donde está salvada la bibliografía.
+
+\end{document}

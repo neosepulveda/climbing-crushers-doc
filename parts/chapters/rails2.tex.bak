@@ -1,0 +1,67 @@
+\subsection{Asociaciones de Active Record}
+
+Las asociaciones facilitan y clarifican la manipulación y las operaciones sobre los objetos. Las asociaciones Active Record de \textit{Rails} permiten declarar a \textit{Rails} una conexión entre dos modelos especificando además de que tipo es.
+
+\subsubsection{Tipos de asociaciones}
+En \textit{Rails}, una asociación es una conexión entre dos modelos de Active Record. Las asociaciones son implementadas usando el estilo macro, por lo que es posible especificar y añadir características a los modelos.
+
+\myparagraph{Asociación \texttt{belongs\_to}}
+Ésta asociación establece una conexión de uno-a-muchos con otro modelo. Para especificar el tipo de relación, la sintaxis\footnote{La asociación \texttt{belongs\_to} emplea el singular del modelo al especificado.} se realiza de la siguiente forma:
+
+\begin{lstlisting}[language=Ruby]
+class Order < ActiveRecord::Base
+  belongs_to :customer
+end
+\end{lstlisting}
+
+\includegraphics[width=10cm]{./image/logos/uahlogo3.png}
+
+La migración será de la siguiente forma:
+
+\begin{lstlisting}[language=Ruby]
+class CreateOrders < ActiveRecord::Migration
+  def change
+    create_table :customers do |t|
+      t.string :name
+      t.timestamps null: false
+    end
+ 
+    create_table :orders do |t|
+      t.belongs_to :customer, index: true
+      t.datetime :order_date
+      t.timestamps null: false
+    end
+  end
+end
+\end{lstlisting}
+
+
+\myparagraph{Asociación \texttt{has\_one}}
+La asociación \texttt{has\_one} es una conexión de uno-a-uno con otro modelo. Aunque parecida a la asociación anterior, ésta indica que cada instancia del modelo $\alpha$ contiene o posee una y sólo una instancia del modelo $\beta$. Para declarar dicha asociación, se procede de la siguiente forma:\footnote{Análogamente a la asociación \texttt{belongs\_to}, ésta también utiliza el singular del modelo al que se refiere.}
+
+\begin{lstlisting}[language=Ruby]
+class Supplier < ActiveRecord::Base
+  has_one :account
+end
+\end{lstlisting}
+
+\includegraphics[width=10cm]{./image/logos/uahlogo3.png}
+
+La migración será de la siguiente forma:
+
+\begin{lstlisting}[language=Ruby]
+class CreateSuppliers < ActiveRecord::Migration
+  def change
+    create_table :suppliers do |t|
+      t.string :name
+      t.timestamps null: false
+    end
+ 
+    create_table :accounts do |t|
+      t.belongs_to :supplier, index: true
+      t.string :account_number
+      t.timestamps null: false
+    end
+  end
+end
+\end{lstlisting}
