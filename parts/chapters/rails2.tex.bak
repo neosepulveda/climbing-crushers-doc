@@ -294,3 +294,824 @@ end
 \subsection{Interfaz de consultas}
 Active Record ejecuta consultas en la base de datos a través de su interfaz. El interfaz es compatible con la mayor parte de las bases de datos (MySQL, PostgreSQL, y SQLite), por lo que independientemente que se utilice, Active Record ejecutará las consultas, siempre, de la misma forma.
 
+\subsubsection{Recuperación de objetos}
+Para recuperar objetos de la base de datos, Active Record proporciona diversos métodos que permiten ejecutar consultas sin la necesidad de escribir directamente en SQL.
+
+\begin{description}
+	\item[Objetos únicos] Active Record proporciona diversas formas de recuperar un único objeto.
+	\begin{description}
+		\item[\texttt{find}] Recupera el objeto correspondiente a la clave primaria proporcionada como parámetro.
+\begin{lstlisting}[language=Ruby]
+# Encontrar el cliente con clave primaria 10.
+client = Client.find(10)
+# => #<Client id: 10, first_name: "Jose Luis">
+\end{lstlisting}
+\begin{lstlisting}[language=SQL]
+SELECT * FROM clients WHERE (clients.id = 10) LIMIT 1;
+\end{lstlisting}
+
+		\item[\texttt{take}] Recupera el registro sin ningún orden implícito.
+\begin{lstlisting}[language=Ruby]
+client = Client.take(2)
+# => [
+  #<Client id: 1, first_name: "Lifo">,
+  #<Client id: 220, first_name: "Sara">
+]
+\end{lstlisting}
+\begin{lstlisting}[language=SQL]
+SELECT * FROM clients LIMIT 2;
+\end{lstlisting}
+		
+		\item[\texttt{first}] Recupera el primer registro ordenado por la clave primaria.
+\begin{lstlisting}[language=Ruby]
+client = Client.first
+# => #<Client id: 1, first_name: "Lifo">
+\end{lstlisting}
+\begin{lstlisting}[language=SQL]
+SELECT * FROM clients ORDER BY clients.id ASC LIMIT 1;
+\end{lstlisting}
+
+		\item[\texttt{last}] Analogamente, recupera el último registro ordenado por la clave primaria.
+\begin{lstlisting}[language=Ruby]
+client = Client.last
+# => #<Client id: 221, first_name: "Russel">
+\end{lstlisting}
+\begin{lstlisting}[language=SQL]
+SELECT * FROM clients ORDER BY clients.id DESC LIMIT 1;
+\end{lstlisting}
+
+		\item[\texttt{find\_by}] Recupera el registro que cumple ciertas condiciones.
+\begin{lstlisting}[language=Ruby]
+Client.find_by first_name: 'Lifo'
+# => #<Client id: 1, first_name: "Lifo">
+\end{lstlisting}
+	\end{description}
+	
+	\item[Objetos múltiples] Active Record permite recuperar colecciones de objetos. Los métodos están implementados para poder operar por lotes, es decir, para poder operar con grandes cantidades de datos sin comprometer el rendimiento del sistema.
+	\begin{description}
+		\item[\texttt{find\_each}] Éste método recupera un lote de registros.
+\begin{lstlisting}[language=Ruby]
+User.find_each do |user|
+  NewsMailer.weekly(user).deliver_now
+end
+\end{lstlisting}
+		
+		\item[\texttt{find\_in\_batches}] Éste método opera y tiene un comportamiento similar al método \texttt{find\_each} ya que ambos recuperan un lote de registros. La diferencia es que \texttt{find\_in\_batches} proporciona un \texttt{array} al bloque en vez de un único objeto cada vez.
+		
+\texttt{find\_each} y \texttt{find\_in\_batches} tienen dos opciones que modifican su comportamiento:
+		\begin{description}
+			\item[\texttt{:batch\_size}] Permite especificar el número de registros recuperados por lote.
+			\item[\texttt{:start}] Permite especificar donde debe comenzar el lote que va a ser recuperado.
+		\end{description}		
+	\end{description}
+\end{description}
+
+
+\subsubsection{Condiciones}
+El método \texttt{where} permite especificar condiciones para limitar los registro recuperados. Representa el \texttt{WHERE} de una instrucción SQL. Las condiciones pueden ser especificadas de diversas maneras.
+
+\myparagraph{Condiciones de cadena}
+Es posible añadir las condiciones directamente como parametro en forma de cadena. Ésta técnica no es recomendable ya que deja el sistema vulnerable a SQL injection\footnote{SQL injection es una técnica de inserción de código que se utiliza para atacar aplicaciones que trabajan con bases de datos, en las que código malicioso SQL es insertado dentro del campo de ejecución.} que pueden comprometer el sistema.
+
+\myparagraph{Condiciones de Array}
+Active Record permite especificar condiciones en forma de \texttt{array} de la siguiente forma:
+
+\begin{lstlisting}[language=Ruby]
+Client.where("orders_count = ? AND locked = ?", params[:orders], false)
+\end{lstlisting}
+
+Cuando es ejecutado, el carácter \textit{?} es sustituido por el parámetro correspondiente a la posición del carácter.
+Ésta técnica, si es utilizada debidamente, no es vulnerable al mencionado SQL injection.
+\textit{Rails} permite cambiar el carácter \textit{?} por un identificador con la intención de clarificar consultas complejas con gran número de condiciones..
+
+\begin{lstlisting}[language=Ruby]
+Client.where("created_at >= :start_date AND created_at <= :end_date",
+  {start_date: params[:start_date], end_date: params[:end_date]})
+\end{lstlisting}
+
+\myparagraph{Condiciones Hash}
+Active Record permite pasar condiciones \textit{hash} que incrementan la legibilidad sintáctica de las condiciones. Se deben proporcionar un \textit{hash} con las claves del los campos que deben ser condicionados y los valores condicionantes.
+Son varios los tipos de \textit{hash} que podemos proporcionar:
+
+\begin{description}
+\item[Igualdades]
+\begin{lstlisting}[language=Ruby]
+Client.where(locked: true)
+\end{lstlisting}
+En el caso de la relación \texttt{belongs\_to}, la clave puede ser utilizada para especificar el modelo si un objeto Active Record es usado como valor. También funciona con relaciones polimorficas.
+\begin{lstlisting}[language=Ruby]
+Article.where(author: author)
+Author.joins(:articles).where(articles: { author: author })
+\end{lstlisting}
+
+\item[Rangos]
+\begin{lstlisting}[language=Ruby]
+Client.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
+\end{lstlisting}
+El código anterior, en SQL sería lo siguiente:
+\begin{lstlisting}[language=SQL]
+SELECT * FROM clients WHERE (clients.created_at BETWEEN '2008-12-21 00:00:00' AND '2008-12-22 00:00:00');
+\end{lstlisting}
+
+\item[Subconjuntos]
+\begin{lstlisting}[language=Ruby]
+Client.where(orders_count: [1,3,5])
+\end{lstlisting}
+El código anterior, en SQL sería lo siguiente:
+\begin{lstlisting}[language=SQL]
+SELECT * FROM clients WHERE (clients.orders_count IN (1,3,5));
+\end{lstlisting}
+\end{description}
+
+\myparagraph{Condiciones negadas}
+Las condiciones SQL negadas se construyen simplemente con el método \texttt{where.not}.
+
+\begin{lstlisting}[language=Ruby]
+Article.where.not(author: author)
+\end{lstlisting}
+
+
+\subsubsection{Ordenación}
+Active Record permite la recuperación de los registros de la base de datos de forma ordenada mediante el uso del método \texttt{order}.
+
+\begin{lstlisting}[language=Ruby]
+Client.order(:created_at)
+# otro modo
+Client.order("created_at")
+\end{lstlisting}
+
+El método se complementa con diversas opciones para especificar la recuperación de registros.
+\begin{itemize}
+\item Especificación orden normal o orden inverso.
+\begin{lstlisting}[language=Ruby]
+Client.order(created_at: :desc)
+# otro modo
+Client.order(created_at: :asc)
+# otro modo
+Client.order("created_at DESC")
+# otro modo
+Client.order("created_at ASC")
+\end{lstlisting}
+
+\item Ordenado de múltiples campos.
+\begin{lstlisting}[language=Ruby]
+Client.order(orders_count: :asc, created_at: :desc)
+# otro modo
+Client.order(:orders_count, created_at: :desc)
+# otro modo
+Client.order("orders_count ASC, created_at DESC")
+# otro modo
+Client.order("orders_count ASC", "created_at DESC")
+\end{lstlisting}
+\end{itemize}
+
+
+\subsubsection{Selección}
+Por defecto, \texttt{Model.find} selecciona todos los campos del resultado de la consulta utilizando \texttt{select *}. Para seleccionar un subconjunto de campos del conjunto de resultados, puede especificarse el subconjunto mediante el método \texttt{select}.
+
+\begin{lstlisting}[language=Ruby]
+Client.select("viewable_by, locked")
+\end{lstlisting}
+
+Que se traduce en lenguaje SQL como:
+
+\begin{lstlisting}[language=SQL]
+SELECT viewable_by, locked FROM clients;
+\end{lstlisting}
+
+\textit{Rails} también permite recuperar un único registro por valor único en un campo determinado como si en el lenguaje SQL se utilizara \texttt{DISTINCT}.
+
+\begin{lstlisting}[language=Ruby]
+Client.select(:name).distinct
+\end{lstlisting}
+
+
+\subsubsection{Limit y Offset}
+Active Record provee los métodos \texttt{limit}, que especifica el número de registros que deben ser recuperados; y \texttt{offset}, que especifica el número de registros que deben ser saltados antes de empezar la operación de recuperación de registros.
+
+\begin{lstlisting}[language=Ruby]
+Client.limit(5).offset(30)
+\end{lstlisting}
+
+
+\subsubsection{Agrupación}
+Para aplicar la operación de agrupación de SQL, \texttt{GROUP BY}, se puede especificar con Activer Record mediante el método \texttt{group}.
+
+\begin{lstlisting}[language=Ruby]
+Order.select("date(created_at) as ordered_date, sum(price) as total_price").group("date(created_at)")
+\end{lstlisting}
+
+La consulta SQL que será ejecutada es la siguiente:
+
+\begin{lstlisting}[language=SQL]
+SELECT date(created_at) as ordered_date, sum(price) as total_price
+FROM orders
+GROUP BY date(created_at);
+\end{lstlisting}
+
+\subsubsection{Join}
+Active Record proporciona un método de búsqueda llamado \texttt{joins} para especificar instrucciones \texttt{JOIN} de SQL.
+Active Record provee varias formas de realizar la operación \texttt{JOIN}:
+
+\myparagraph{Formato SQL puro}
+Se aporta una cadena de caracteres de código SQL puro en método \texttt{joins}.
+
+\begin{lstlisting}[language=Ruby]
+Client.joins('LEFT OUTER JOIN addresses ON addresses.client_id = clients.id');
+\end{lstlisting}
+
+\myparagraph{Formato Array/Hash}
+Active Record permite usar los nombres de las asociaciones definidas en los modelos para facilitar la especificación de las instrucciones \texttt{JOIN} cuando se utiliza el método \texttt{joins}. Éste método solo funciona con la instrucción \texttt{INNER JOIN}.
+
+Considerando los siguientes modelos:
+
+\begin{lstlisting}[language=Ruby]
+class Category < ActiveRecord::Base
+  has_many :articles
+end
+ 
+class Article < ActiveRecord::Base
+  belongs_to :category
+  has_many :comments
+  has_many :tags
+end
+ 
+class Comment < ActiveRecord::Base
+  belongs_to :article
+  has_one :guest
+end
+ 
+class Guest < ActiveRecord::Base
+  belongs_to :comment
+end
+ 
+class Tag < ActiveRecord::Base
+  belongs_to :article
+end
+\end{lstlisting}
+
+\begin{description}
+	\item[Asociación única]
+	\begin{lstlisting}[language=Ruby]
+	Category.joins(:articles)
+	\end{lstlisting}
+	Produce:
+	\begin{lstlisting}[language=SQL]
+	SELECT categories.* FROM categories 
+	INNER JOIN articles ON articles.category_id = categories.id;
+	\end{lstlisting}
+	
+	\item[Asociación múltiple]
+	\begin{lstlisting}[language=Ruby]
+	Article.joins(:category, :comments)
+	\end{lstlisting}
+	Produce:
+	\begin{lstlisting}[language=SQL]
+	SELECT articles.* FROM articles
+	INNER JOIN categories ON articles.category_id = categories.id
+    INNER JOIN comments ON comments.article_id = articles.id;
+	\end{lstlisting}
+	
+	\item[Asociación anidada]
+	\begin{lstlisting}[language=Ruby]
+	Article.joins(comments: :guest)
+	\end{lstlisting}
+	Produce:
+	\begin{lstlisting}[language=SQL]
+	SELECT articles.* FROM articles
+  	INNER JOIN comments ON comments.article_id = articles.id
+ 	INNER JOIN guests ON guests.comment_id = comments.id;
+	\end{lstlisting}
+	
+	\item[Asociaciones anidadas (varios niveles)]
+	\begin{lstlisting}[language=Ruby]
+	Category.joins(articles: [{ comments: :guest }, :tags])
+	\end{lstlisting}
+	Produce:
+	\begin{lstlisting}[language=SQL]
+	SELECT categories.* FROM categories
+  	INNER JOIN articles ON articles.category_id = categories.id
+  	INNER JOIN comments ON comments.article_id = articles.id
+  	INNER JOIN guests ON guests.comment_id = comments.id
+  	INNER JOIN tags ON tags.article_id = articles.id;
+	\end{lstlisting}
+\end{description}
+
+
+\subsubsection{Scopes}
+Active Record permite definir \textit{scopes} que son consultas definidas debido a que tendrán un uso habitual en la aplicación, y que pueden ser referenciadas como llamadas a métodos de los objetos de la asociación.
+
+Para definir un \textit{scope}, se debe utilizar el método \texttt{scope} dentro de la clase junto a la consulta que debe ser ejecutada en dicho \textit{scope}.
+
+\begin{lstlisting}[language=Ruby]
+class Article < ActiveRecord::Base
+  scope :published, -> { where(published: true) }
+end
+\end{lstlisting}
+
+Active Record permite la anidación de \textit{scopes}, lo que simplifica la codificación de \textit{scopes} complejos.
+
+\begin{lstlisting}[language=Ruby]
+class Article < ActiveRecord::Base
+  scope :published,               -> { where(published: true) }
+  scope :published_and_commented, -> { published.where("comments_count > 0") }
+end
+\end{lstlisting}
+
+Es también posible definir un scope al que se le pueden pasar argumentos:
+
+\begin{lstlisting}[language=Ruby]
+class Article < ActiveRecord::Base
+  scope :created_before, ->(time) { where("created_at < ?", time) }
+end
+\end{lstlisting}
+
+
+
+\section{Vistas}
+En \textit{Rails}, las vistas están gestionadas Action View. Action View es junto con Action Controller, uno de los componentes más importantes de Action Pack. En \textit{Ruby on Rails}, las peticiones web son gestionadas por Action Pack, que divide el trabajo entre el controlador y la vista.
+
+Action View utiliza plantillas o \textit{templates} que están codificadas usando código \textit{Ruby} embebido entre las etiquetas HTML. El própisito de éstas plantillas es visualizar los resultados de cada acción del controlador asociado.
+
+En \textit{Rails}, por cada controlador, existe un directorio en \texttt{apps/views} que mantiene los ficheros de las plantillas que construyen las vistas asociadas a dicho controlador.
+
+\subsection{Plantillas, parciales y layouts}
+La producción final de HTML está compuesta de tres elementos en \textit{Rails}: Plantillas, parciales y layouts, que son utilizados para visualizar vistas comunes de las plantillas.
+
+\subsubsection{Plantillas}
+Las plantillas de Action View pueden ser codificadas de diversas formas:
+
+\begin{description}
+	\item[ERB] Dentro de un plantilla ERB, el código \textit{Ruby} puede ser incluido usando las etiquetas \texttt{<\% \%>} y \texttt{<\%= \%>}. La etiqueta \texttt{<\% \%>} es utilizada cuando el código \textit{Ruby} no devuelve nada; como es el caso de condiciones o bucles; mientras que \texttt{<\%= \%>} es usada cuando se requiere una salida.
+	\begin{lstlisting}[language=Ruby]
+	<h1>Names of all the people</h1>
+	<% @people.each do |person| %>
+  		Name: <%= person.name %><br>
+	<% end %>
+	\end{lstlisting}
+	
+	\item[Builder] Las plantillas de builder son mucho más útiles para generar contenido XML.
+	\begin{lstlisting}[language=Ruby]
+	xml.em("emphasized")
+	xml.em { xml.b("emph & bold") }
+	xml.a("A Link", "href" => "http://rubyonrails.org")
+	xml.target("name" => "compile", "option" => "fast")
+	\end{lstlisting} 	
+\end{description} 
+
+\textit{Rails}, por defecto, compilará cada plantilla a un método para visualizarla. Cuando una plantilla es alterada. \textit{Rails} comprueba de que el archivo ha sido modificado y lo recompila en modo desarrollo.
+
+\subsubsection{Parciales}
+Los parciales son un instrumento para dividir el proceso de visualización de una plantilla en piezas más simples y manejables. Con los parciales, se puede extraer piezas de código de las plantillas e insertarlas en archivos separados, simplificando las plantillas y aún más importante, garantizando la reutilización de código.
+
+Para renderizar un parcial, se debe utilizar el método \texttt{render} dentro de la vista:
+
+\begin{lstlisting}[language=Ruby]
+<%= render "menu" %>
+\end{lstlisting}
+
+Una forma útil de utilizar los parciales es a modo de subrutinas con el objetivo de tener un código más claro y legible.
+
+\begin{lstlisting}[language=Ruby]
+<%= render "shared/ad_banner" %>
+ 
+<h1>Products</h1>
+ 
+<p>Here are a few of our fine products:</p>
+<% @products.each do |product| %>
+  <%= render partial: "product", locals: {product: product} %>
+<% end %>
+ 
+<%= render "shared/footer" %>
+\end{lstlisting}
+
+Es común que una plantilla itere sobre una colección y muestre una subplantilla por cada elemento de la colección. Este patrón puede ser implementado con un sólo método que acepte un vector y visualice un parcial para cada uno de los elementos del vector.
+
+\begin{lstlisting}[language=Ruby]
+<% @products.each do |product| %>
+  <%= render partial: "product", locals: { product: product } %>
+<% end %>
+
+O aún en un estilo más Rails:
+<%= render partial: "product", collection: @products %>
+\end{lstlisting}
+
+
+\subsubsection{Layouts y layouts parciales}
+Los layouts de Active View son elementos utilizados para visualizar y mostrar vistas comunes de una plantilla en torno a los resultados de la acción del controlador.
+Ejemplos típicos de layouts son páginas comunes en web como FAQ, precios, contacto o términos y condiciones.
+
+Los parciales puede tener asociados sus propios layouts. Estos layouts son diferentes a los aplicados en el controlador aunque funcionan de forma similar.
+
+Para mostrar un ejemplo de ellos, supongamos la siguiente situación:
+
+\begin{lstlisting}[language=Ruby]
+Article.create(body: 'Esto es un layout parcial')
+\end{lstlisting}
+
+La plantilla de la acción \texttt{show}, se visualizará el parcial \texttt{\_article} encapsulado en un layout llamado \texttt{box}.
+
+\textbf{articles/show.html.erb}
+\begin{lstlisting}[language=Ruby]
+<%= render partial: 'article', layout: 'box', locals: {article: @article} %>
+\end{lstlisting}
+
+El layout \texttt{box} encapsula el parcial \texttt{\_article} en una etiqueta HTML \texttt{div}:
+
+\textbf{articles/\_box.html.erb}
+\begin{lstlisting}[language=Ruby]
+<div class='box'>
+  <%= yield %>
+</div>
+\end{lstlisting}
+
+\textbf{articles/\_article.html.erb}
+\begin{lstlisting}[language=Ruby]
+<%= div_for(article) do %>
+  <p><%= article.body %></p>
+<% end %>
+\end{lstlisting}
+
+El resultado final en HTML será el siguiente:
+
+\begin{lstlisting}[language=HTML]
+<div class='box'>
+  <div id='article_1'>
+    <p>Esto es un layout parcial</p>
+  </div>
+</div>
+\end{lstlisting}
+
+
+\section{Controladores}
+Los controladores son el componente de la arquitectura MVC que determinan que acción debe aplicarse ante una entrada concreta, generando una salida apropiada. Los controladores puede ser pensados como elementos entre los modelos y las vistas. El controlador hace disponibles los datos del modelo a la vista, de forma que, ésta última muestre los datos al usuario, y guarda o actualiza los datos introducidos por el usuario al modelo.
+El controlador de \textit{Rails} es implementado por Action Controller.
+
+
+\subsection{Action Controller}
+Después de que el enrutamiento haya determinado que controlador debe de ser aplicado para una determinada petición, dicho controlador es responsable de producir la salida apropiada. Action Controller realiza casi todo el trabajo utilizando convenciones para facilitar el proceso al desarrollador.
+
+Para las aplicaciones RESTful convencionales, la forma más común en la que un controlador funciona es: el controlador recibe una petición, extrae o guarda datos en el modelo pertinente e invoca una vista para generar una salida HTML.
+
+Teniendo en cuenta que una de las filosofías de \textit{Rails} es convención sobre configuración, los controladores de \textit{Rails} están sujetos a una convención en sus nombres. Los controladores de \textit{Rails} favorecen la pluralización de la última palabra del nombre del controlador. Siguiendo ésta convención, se permite utilizar generadores de rutas por defecto sin necesidad de especificar la ruta o el controlador, manteniendo la URL y los \textit{helpers} consistentes a través de la aplicación.
+
+\subsubsection{Métodos y acciones}
+A nivel de código, un controlador es una clase de \textit{Ruby} que hereda de la clase \texttt{ApplicationController}. Cuando la aplicación recibe una petición, el enrutamiento detrermina que controlador y que acción del controlador debe ejecutarse. Después \textit{Rails} crea una instancia de ese controlador y ejecuta el método con el mismo nombre que la acción.
+
+\begin{lstlisting}[language=Ruby]
+class ClientsController < ApplicationController
+  def new
+  	@client = Client.new
+  end
+end
+\end{lstlisting}
+
+En el ejemplo anterior, si un usuario va a \texttt{URL\_APLICACIÓN/clients/new} para añadir un nuevo cliente, \textit{Rails} creará una instancía del controlador \texttt{ClienteController} y ejecutará el método \texttt{new} creando un nuevo cliente. Un método vacío puede funcionar porque \textit{Rails}, por defecto, visualizara la vista \texttt{new.html.erb} a menos que se especifique lo contrario.
+
+\texttt{ApplicationController} es una clase que hereda de una clase superior, \texttt{ActionController::Base}, que tiene implementados una serie de métodos útiles para la codificación de controladores.
+
+
+\subsubsection{Parámetros}
+En \textit{Rails}, naturalmente, se puede acceder a datos enviados por el usuario o otros parámetros en las acciones de un controlador. Hay dos tipos de parámetros posibles en una aplicación web: Los parámetros enviados junto con la URL de la aplicación, denominados parámetros ``query string''; y los parámetros que son referidos como datos POST. Esta información suele venir desde un formulario HTML que ha sido rellenado por el usuario. Es llamado datos POST puesto que solo puede ser enviado como parte de una petición HTTP POST. \textit{Rails} no hace distinciones entre parámetros ``query string'' y POST, y ambos son disponibles en el hash \texttt{params} del controlador.
+
+\begin{lstlisting}[language=Ruby]
+class ClientsController < ApplicationController
+  #Esta acción usa query string parameters porque es ejecutado por una petición GET de HTML, pero no hace diferencias en la forma de que los parámetros son accedidos. La URL de esta acción con lista ordenada será similar a: clients: /clients?status=activated
+  def index
+    if params[:status] == "activated"
+      @clients = Client.activated
+    else
+      @clients = Client.inactivated
+    end
+  end
+  
+  #Esta acción usa parámetros POST. La URL para la petición RESTful será "/clients" y los datos serán enviados como parte del cuerpo de la petición.
+  def create
+    @client = Client.new(params[:client])
+    if @client.save
+      redirect_to @client
+    else
+      render "new"
+    end
+  end
+end
+\end{lstlisting}
+
+
+\begin{description}
+	\item[Parámetros \texttt{Hash} y \texttt{Array}] En \textit{Rails} se permite el uso de hashes y array como parametros. El hash \texttt{params} no está limitado a una dimensión de claves y valores. Puede contener hashes anidados.
+\begin{lstlisting}[language=Ruby]
+GET /clients?ids[]=1&ids[]=2&ids[]=3
+\end{lstlisting}	
+	
+	Un hash debe ser enviado incluyendo el nombre de la clave y el valor entre corchetes. Suponiendo un formulario en el que los datos son enviados de la siguiente forma:
+	
+\begin{lstlisting}[language=HTML]
+<form accept-charset="UTF-8" action="/clients" method="post">
+	<input type="text" name="client[name]" value="Acme" />
+  	<input type="text" name="client[phone]" value="12345" />
+  	<input type="text" name="client[address][postcode]" value="12345" />
+  	<input type="text" name="client[address][city]" value="Carrot City" />
+</form>
+\end{lstlisting}
+	
+	Cuando el formulario es enviado, el valor de \texttt{params[:client]} será:
+\begin{lstlisting}[language=Ruby]
+{ "name" => "Acme", "phone" => "12345", "address" => { "postcode" => "12345", "city" => "Carrot City" } }
+\end{lstlisting}
+	
+	\item[Parámetros JSON] En una aplicación web es interesante aceptar parámetros en un formato JSON. Si la cabecera ``Content-Type'' de la petición es establecida como ``application/json'', \textit{Rails} automáticamente convierte los parámetros en el hash \texttt{params}.
+	
+	Suponiendo el siguiente contenido JSON:
+\begin{lstlisting}[language=Java]
+{ "company": { "name": "acme", "address": "123 Carrot Street" } }
+\end{lstlisting}
+
+	Se obtendrá \texttt{params[:company]} como:
+\begin{lstlisting}[language=Ruby]
+{ "name": "acme", "address": "123 Carrot Street" }	
+\end{lstlisting}
+
+	\item[Strong parameters] Con los ``strong parameters'', los parámetros de Action Controller están prohibidos para ser usados en la asignación masiva de Active Model a menos que se especifique lo contrario. Esto significa, que el progrmador debe hacer un elección sobre qué parámetros son permitidos para asignación masiva, evitando la exposición accidental de atributos del modelo.
+	
+\begin{lstlisting}[language=Ruby]
+class PeopleController < ActionController::Base
+  def create
+    Person.create(params[:person])
+  end
+ 
+  def update
+    person = current_account.people.find(params[:id])
+    person.update!(person_params)
+    redirect_to person
+  end
+ 
+  private
+    def person_params
+      params.require(:person).permit(:name, :age)
+    end
+end
+\end{lstlisting}
+	
+	Los ``strong parameters'' pueden ser definidos para los casos anidados de la siguiente forma:
+	
+\begin{lstlisting}[language=Ruby]
+params.permit(:name, { emails: [] },
+              friends: [ :name,
+                         { family: [ :name ], hobbies: [] }])
+\end{lstlisting}		 
+
+\end{description}
+ 
+
+\subsubsection{Sesiones}
+Las aplicaciones de \textit{Rails} tienen una sesión por cada usuario en la que se almacena una cantidad pequeña de datos que será persistente entre las diferentes peticiones. La sesión solo está disponible en el controlador y la vista, y puede usar uno de los siguientes mecanismos de almacenamiento:
+
+\begin{itemize}
+	\item \texttt{ActionDispatch::Session::CookieStore} Almacena todos los datos en el cliente.
+	\item \texttt{ActionDispatch::Session::CacheStore} Almacena los datos en el cache de \textit{Rails}.
+	\item \texttt{ActionDispatch::Session::ActiveRecordStore} Almacena los datos en la base de datos utilizando ActiveRecord. Para su funcionamiento, se precisa la gema \texttt{activerecord-session\_store}.
+	\item \texttt{ActionDispatch::Session::MemCacheStore} Almacena los datos del clúster de \textit{memcached}.
+\end{itemize}
+
+Todas las sesiones utilizan una \textit{cookie} para almacenar un ID único por cada sesión. La cookie puede ocupar en torno a 4kB de datos que a pesar de no ser demasiado es suficiente, y además almacenar grandes cantidades de información no es recomendable puesto que el servidor puede no ser capaz de reensamblar en la cookie todas las peticiones, lanzando un error correspondiente.
+
+\myparagraph{Flash}
+El \textit{flash} es una parte especial de la sesión que es despejada con cada petición. Esto significa que los valores almacenados sólo están disponibles en la siguiente petición, lo que resulta útil para el lanzamiento de mensajes de error.
+
+Un ejemplo de flash es la acción de desloguear, el controlador puede enviar un mensaje que será mostrado al usuario en la siguiente petición:
+
+\begin{lstlisting}[language=Ruby]
+class LoginsController < ApplicationController
+  def destroy
+    session[:current_user_id] = nil
+    flash[:notice] = "You have successfully logged out."
+    redirect_to root_url
+  end
+end
+\end{lstlisting} 
+
+Los mensajes flash también pueden ser asignados como parte de la redirección. Se puede asignar \texttt{:notice}, \texttt{:alert} o \texttt{:flash} para propósitos generales.
+
+\begin{lstlisting}[language=Ruby]
+redirect_to root_url, notice: "You have successfully logged out."
+redirect_to root_url, alert: "You're stuck here!"
+redirect_to root_url, flash: { referral_code: 1234 }
+\end{lstlisting}
+
+
+\subsubsection{Filtros}
+Filtros son métodos que se ejecutan antes, después o ``sobre'' un acción de un controlador. Los filtros son heredados, por lo que si se establece un filtro en la clase \texttt{ApplicationController}, podrá ser ejecutado en cualquier controlador de la aplicación.
+
+\myparagraph{Filtro Before}
+Éste filtro es ejecutado antes de que se ejecute la acción por lo que puede detener la petición web. Un filtro típico es aquel que requiere que el usuario esté logueado antes de ejecutar la acción. 
+
+\begin{lstlisting}[language=Ruby]
+class ApplicationController < ActionController::Base
+  before_action :require_login
+ 
+  private
+ 
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_login_url # halts request cycle
+    end
+  end
+end
+\end{lstlisting}
+
+\myparagraph{Filtro After}
+Éste filtro en contraposición al filtro \texttt{before}, es ejecutado después de que la acción haya tenido lugar. Obviamente no pueden detener la ejecución de la acción.
+
+\myparagraph{Filtro Around}
+El filtro \texttt{around} es responsable de ejecutar sus acciones asociadas durante la ejecución de la acción.
+
+
+\subsection{Enrutamiento en Rails}
+
+El enrutador de \textit{Rails} reconoce URLs y las envía a la acción de un controlador. Puede también generar rutas y URLs, sin tener la necesidad de codificarlas a mano en las vistas.
+
+El propósito del enrutador de \textit{Rails} es doble, conectar determinadas URLs al código y generar rutas y URLs desde el código:
+
+\begin{description}
+	\item[Conexión de URLs al código] Se refiere a que \textit{Rails} recibe una petición, y consulta al enrutador qué acción y controlador cuadra con dicha petición, después es enviada a la acción del controlador especificado por el enrutador.
+	
+	Suponiendo la petición y la ruta siguientes:
+\begin{lstlisting}[language=Ruby]
+GET /patients/17
+	\end{lstlisting}
+	
+\begin{lstlisting}[language=Ruby]
+get '/patients/:id', to: 'patients#show'	
+\end{lstlisting}
+
+	la petición será enviada a la acción \texttt{show} del controlador \texttt{patients} con los siguientes datos en \texttt{params}.
+	
+\begin{lstlisting}[language=Ruby]
+{ id: '17' }
+\end{lstlisting}
+
+	\item[Generación de rutas y URLs desde el código] \textit{Rails} posibilita la generación de rutas y URLs. Ésta característica es especialmente útil para una mejora de la claridad y solidez del código. Suponiendo la ruta del ejemplo anterior, si modificada, sería:
+
+\begin{lstlisting}[language=Ruby]
+get '/patients/:id', to: 'patients#show', as: 'patient'
+\end{lstlisting}
+
+Suponiendo, también, que la aplicación contiene el código en el controlador y las vista siguientes:
+
+\begin{lstlisting}[language=Ruby]
+@patient = Patient.find(17)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+<%= link_to 'Patient Record', patient_path(@patient) %>
+\end{lstlisting}
+
+	Entonces, el enrutador de \textit{Rails} generará la ruta \texttt{patients/17}. 
+\end{description}
+
+
+\subsection{Enrutamiento con recursos}
+El enrutamiento con recursos permite declarar todas las rutas comunes para un controlador determinado. En vez de declarar las rutas de las acciones de forma separada, \texttt{index}, \texttt{show}, \texttt{new}, \texttt{edit}, \texttt{create}, \texttt{update} y \texttt{destroy}; con el enrutamiento con recursos se declaran en una sola linea.
+
+\subsubsection{Recursos en la Web}
+Los navegadores hacen peticiones de páginas a \textit{Rails} haciendo una petición a una URL usando un método concreto de HTTP, como \texttt{GET}, \texttt{POST}, \texttt{PATCH}, \texttt{PUT}, \texttt{PUT}, y \texttt{DELETE}. Cada método es requerido para hacer una operación en el recurso. 
+
+Cuando una aplicación \textit{Rails} recibe la siguiente petición:
+
+\begin{lstlisting}[language=Ruby]
+DELETE /photos/17
+\end{lstlisting}
+
+Y la primera ruta encontrada es:
+
+\begin{lstlisting}[language=Ruby]
+resources :photos
+\end{lstlisting}
+
+\textit{Rails} enviará esa peticion al método \texttt{destroy} en el controlador \texttt{photos} con el siguiente valor en \texttt{params}.
+
+\begin{lstlisting}[language=Ruby]
+{ id: '17' }
+\end{lstlisting}
+
+\subsubsection{CRUD, verbos y acciones}
+En \textit{Rails}, una ruta de recursos proporciona una tabla entre los verbos HTTP y las URL a las acciones del controlador. Por convenio, cada acción se enlaza con una operación CRUD particular de la base de datos.
+La siguiente entrada en el archivo de enrutamiento:
+
+\begin{lstlisting}[language=Ruby]
+resources :photos
+\end{lstlisting}
+
+Genera las siguientes rutas diferentes en la aplicación con relación al controlador \texttt{photos}.
+
+\begin{center}
+	\begin{tabular}{| p{4cm} | p{4cm} | p{4cm} | }
+	\hline
+	Verbo HTTP & Ruta & Controlador\#Acción \\ \hline
+	GET & /photos & photos\#index \\	
+	GET & /photos/new & photos\#new \\
+	POST & /photos & photos\#create \\
+	GET & /photos/:id & photos\#show \\
+	GET & /photos/:id/edit & photos\#edit \\
+	PATCH / PUT & /photos/:id & photos\#update \\
+	DELETE & /photos/:id & photos\#destroy \\  
+	\hline
+	\end{tabular}
+\end{center}
+
+
+\subsubsection{Namespaces}
+\textit{Rails} posibilita la organización por grupos de los controladores bajo los \textit{namespaces}. Suponiendo que se pretender agrupar una serie de controladores administrativos bajo un \textit{namespace} de administración, se emplazarían los controladores bajo el directorio \texttt{app/controllers/admin}, y se agruparían en juntos en el enrutador:
+
+\begin{lstlisting}[language=Ruby]
+namespace :admin do
+  resources :articles, :comments
+end
+\end{lstlisting}
+
+Para el caso de \texttt{Admin::ArticlesController}, \textit{Rails} crearía la siguiente tabla:
+
+\begin{center}
+	\scalebox{0.87} {
+	\begin{tabular}{| p{4.5cm} | p{4.5cm} | p{5cm} | }
+	\hline
+	Ruta & Controlador\#Acción & Procedimiento \\ \hline
+	/admin/articles & admin/articles\#index & admin\_articles\_path \\
+	/admin/articles/new & admin/articles\#new & new\_admin\_article\_path \\
+	/admin/articles & admin/articles\#create & admin\_articles\_path \\
+	/admin/articles/:id & admin/articles\#show & admin\_article\_path(:id) \\
+	/admin/articles/:id/edit & admin/articles\#edit & edit\_admin\_article\_path(:id) \\
+	/admin/articles/:id & admin/articles\#update & admin\_article\_path(:id) \\
+	/admin/articles/:id	& admin/articles\#destroy & admin\_article\_path(:id) \\  
+	\hline
+	\end{tabular}
+	}
+\end{center}
+ 
+ 
+\subsubsection{Recursos anidados}
+Es común tener recursos que son hijos de otros recursos, este es el caso de los recursos anidados. Los recursos anidados permiten capturar las relaciones entre los objetos de Active Record en el enrutamiento.
+
+Suponiendo que se tienen los siguientes modelos y las siguientes rutas:
+
+\begin{lstlisting}[language=Ruby]
+class Magazine < ActiveRecord::Base
+  has_many :ads
+end
+ 
+class Ad < ActiveRecord::Base
+  belongs_to :magazine
+end
+\end{lstlisting}
+
+\begin{lstlisting}[language=Ruby]
+resources :magazines do
+  resources :ads
+end
+\end{lstlisting}
+
+La tabla generada por el enrutador de \textit{Rails} seria de la siguiente forma:
+
+\begin{center}
+	\scalebox{1} {
+	\begin{tabular}{| p{2.5cm} | p{7cm} | p{2.5cm} | }
+	\hline
+	Verbo HTTP & Ruta & Cont.\#Acción \\ \hline
+	GET & /magazines/:magazine\_id/ads & ads\#index \\	
+	GET & /magazines/:magazine\_id/ads/new & ads\#new \\
+	POST & /magazines/:magazine\_id/ads & ads\#create \\
+	GET & /magazines/:magazine\_id/ads/:id & ads\#show \\
+	GET & /magazines/:magazine\_id/ads/:id/edit & ads\#edit \\
+	PATCH/PUT & /magazines/:magazine\_id/ads/:id & ads\#update \\
+	DELETE & /magazines/:magazine\_id/ads/:id & ads\#destroy \\  
+	\hline
+	\end{tabular}
+	}
+\end{center}
+
+
+A pesar de que es posible tener varios niveles de anidamiento, los recursos anidados no deberían tener más de un nivel de anidación debido a que las URLs y los helpers se vuelven complejos.
+
+\begin{lstlisting}[language=Ruby]
+resources :publishers do
+  resources :magazines do
+    resources :photos
+  end
+end
+\end{lstlisting}
+
+Ésta aplicación reconocería una petición del estilo:
+
+\begin{lstlisting}[language=Ruby]
+/publishers/1/magazines/2/photos/3
+\end{lstlisting}
+
+Una forma de evitar las anidaciones profundas es utilizar el mecanismo \textit{shallow nesting} que genera una colección de acciones bajo un mismo recurso padre. La idea es quitar recursos innecesarios de las rutas. Por ejemplo en una acción \texttt{edit}, se sólo requerirá el ID del objeto que se pretende editar, y no se necesita el resto de recursos padre para localizar el objeto con dicho ID.
+
+\begin{lstlisting}[language=Ruby]
+resources :articles do
+  resources :comments, shallow: true
+end
+\end{lstlisting}

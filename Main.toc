@@ -154,7 +154,42 @@
 \contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_and\_belongs\_to\_many}}{91}{section*.45}
 \contentsline {paragraph}{Asociaciones polimorficas}{92}{section*.46}
 \contentsline {subsection}{\numberline {3.7.9}Interfaz de consultas}{94}{subsection.3.7.9}
-\contentsline {chapter}{\numberline {4}Conclusi\IeC {\'o}n}{95}{chapter.4}
-\contentsline {chapter}{\numberline {A}M\IeC {\'a}s cosas}{96}{appendix.Alph1}
-\contentsline {chapter}{\numberline {B}Y m\IeC {\'a}s cosas a\IeC {\'u}n}{97}{appendix.Alph2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{98}{appendix.Alph2}
+\contentsline {subsubsection}{\numberline {3.7.9.1}Recuperaci\IeC {\'o}n de objetos}{94}{subsubsection.3.7.9.1}
+\contentsline {subsubsection}{\numberline {3.7.9.2}Condiciones}{96}{subsubsection.3.7.9.2}
+\contentsline {paragraph}{Condiciones de cadena}{96}{section*.47}
+\contentsline {paragraph}{Condiciones de Array}{96}{section*.48}
+\contentsline {paragraph}{Condiciones Hash}{96}{section*.49}
+\contentsline {paragraph}{Condiciones negadas}{97}{section*.50}
+\contentsline {subsubsection}{\numberline {3.7.9.3}Ordenaci\IeC {\'o}n}{97}{subsubsection.3.7.9.3}
+\contentsline {subsubsection}{\numberline {3.7.9.4}Selecci\IeC {\'o}n}{98}{subsubsection.3.7.9.4}
+\contentsline {subsubsection}{\numberline {3.7.9.5}Limit y Offset}{98}{subsubsection.3.7.9.5}
+\contentsline {subsubsection}{\numberline {3.7.9.6}Agrupaci\IeC {\'o}n}{99}{subsubsection.3.7.9.6}
+\contentsline {subsubsection}{\numberline {3.7.9.7}Join}{99}{subsubsection.3.7.9.7}
+\contentsline {paragraph}{Formato SQL puro}{99}{section*.51}
+\contentsline {paragraph}{Formato Array/Hash}{99}{section*.52}
+\contentsline {subsubsection}{\numberline {3.7.9.8}Scopes}{101}{subsubsection.3.7.9.8}
+\contentsline {section}{\numberline {3.8}Vistas}{102}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Plantillas, parciales y layouts}{102}{subsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.1.1}Plantillas}{102}{subsubsection.3.8.1.1}
+\contentsline {subsubsection}{\numberline {3.8.1.2}Parciales}{103}{subsubsection.3.8.1.2}
+\contentsline {subsubsection}{\numberline {3.8.1.3}Layouts y layouts parciales}{104}{subsubsection.3.8.1.3}
+\contentsline {section}{\numberline {3.9}Controladores}{104}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Action Controller}{105}{subsection.3.9.1}
+\contentsline {subsubsection}{\numberline {3.9.1.1}M\IeC {\'e}todos y acciones}{105}{subsubsection.3.9.1.1}
+\contentsline {subsubsection}{\numberline {3.9.1.2}Par\IeC {\'a}metros}{106}{subsubsection.3.9.1.2}
+\contentsline {subsubsection}{\numberline {3.9.1.3}Sesiones}{108}{subsubsection.3.9.1.3}
+\contentsline {paragraph}{Flash}{109}{section*.53}
+\contentsline {subsubsection}{\numberline {3.9.1.4}Filtros}{110}{subsubsection.3.9.1.4}
+\contentsline {paragraph}{Filtro Before}{110}{section*.54}
+\contentsline {paragraph}{Filtro After}{110}{section*.55}
+\contentsline {paragraph}{Filtro Around}{110}{section*.56}
+\contentsline {subsection}{\numberline {3.9.2}Enrutamiento en Rails}{110}{subsection.3.9.2}
+\contentsline {subsection}{\numberline {3.9.3}Enrutamiento con recursos}{111}{subsection.3.9.3}
+\contentsline {subsubsection}{\numberline {3.9.3.1}Recursos en la Web}{112}{subsubsection.3.9.3.1}
+\contentsline {subsubsection}{\numberline {3.9.3.2}CRUD, verbos y acciones}{112}{subsubsection.3.9.3.2}
+\contentsline {subsubsection}{\numberline {3.9.3.3}Namespaces}{112}{subsubsection.3.9.3.3}
+\contentsline {subsubsection}{\numberline {3.9.3.4}Recursos anidados}{113}{subsubsection.3.9.3.4}
+\contentsline {chapter}{\numberline {4}Conclusi\IeC {\'o}n}{115}{chapter.4}
+\contentsline {chapter}{\numberline {A}M\IeC {\'a}s cosas}{116}{appendix.Alph1}
+\contentsline {chapter}{\numberline {B}Y m\IeC {\'a}s cosas a\IeC {\'u}n}{117}{appendix.Alph2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{118}{appendix.Alph2}
