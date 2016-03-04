@@ -1,0 +1,71 @@
+\section{Introducción}
+Esta parte del documento cubrirá el análisis del sistema, comenzando por la descripción de las funcionalidades del sistema que dará paso a la elaboración y especificación de los requisitos del sistema hasta los diagramas de eventos y diferentes flujos de datos del sistema.
+
+Se utilizará la metodología de análisis estructurado para realizar el análisis del componente mediante diagramas de flujos de datos.
+
+
+\section{Requisitos del sistema}
+
+Los requisitos del sistema pueden ser agrupados en diferentes categorías debido a su naturaleza y en base a sus características.
+
+\subsection{Requisitos de interfaces de usuario}
+El interfaz de usuario y la experiencia del usuario juegan un papel fundamental en ésta aplicación debido a su forma de red social. A grandes rasgos, se debe lograr una interfaz intuitiva y que no abrume al usuario debido a la gran cantidad de información que debe ser mostrada.
+ 
+\myparagraph{Interfaz de usuario intuitiva}
+Se insistirá especialmente en conseguir una interfaz de usuario lo más intuitiva posible.
+La idea es que el usuario pueda manejar la aplicación sin tener amplios conocimientos informáticos o tecnológicos ni tampoco precise de instrucción o un tutorial para la interacción con la aplicación.
+ 
+Otro concepto que se pretende transmitir al interfaz de usuario es que en la propia experiencia de usuario, el usuario sea capaz de entender si lo que está haciendo está bien o no. Esta es una idea traída del desarrollo de videojuegos en la cual hay que hacer entender al jugador si está jugando bien o mal, por ejemplo si en un cierto juego, aparece un item que dará una determinada mejora al personaje del jugador, debe ser visualmente atractivo e indicar que es algo ``bueno'' sin haberlo incluso cogido.
+
+\myparagraph{Interfaz de usuario sencilla}
+Es fundamental que la interfaz de usuario sea lo más clara y sencilla posible. Dado el carácter de red social, la información que se visualiza en cada pantalla es enorme. Por tanto, para lograr un interfaz no recargado, los elementos deben agruparse en diferentes planos según su importancia.
+
+Para llevar a cabo dicho objetivo, se deberán disponer de menús, submenús, barras de navegación y otros elementos, así como, un estudio concienzudo sobre que elementos deben aparecer en los planos más importantes y cuales deben aparecer en planos de un carácter secundario.
+
+\myparagraph{Interfaz de usuario atractiva}
+La interfaz de usuario debe ser lo más atractiva posible.
+Para lograrlo, se debe disponer un diseño o layout que resulte visualmente interesante y que además, consiga el objetivo anterior de una interfaz sencilla. Además se intentará buscar un esquema de colores atractivo visualmente y que vaya acorde con la temática de la aplicación, en este caso, la escalada. 
+
+También se pueden disponer de elementos como iconos, imágenes o una fuente interesante que alivien y aligeren el diseño visual.
+
+\myparagraph{Interfaz de usuario con diseño reponsive}
+Responsive es un concepto de diseño web que busca la creación de sitios web que proporcionen una visualización optima del contenido y la experiencia de interacción. Fácil lectura y navegación con el mínimo posible de scrolling, cambios de tamaño, \ldots son características de un diseño responsive. El concepto detrás del diseño responsive es que el contenido de la web deber ser como el agua, el agua se adapta a su continente.
+
+``\textit{You put water into a cup it becomes the cup. You put water into a bottle it becomes the bottle. You put it in a teapot, it becomes the teapot. Be water my friend}'' --Bruce Lee
+
+
+\subsection{Requisitos funcionales}
+
+
+\subsection{Requisitos de validación y verificación}
+Teniendo en cuenta que se trata de una aplicación en la que los usuarios de la misma son los que introducen y pueblan con datos e información a la aplicación, es de especial interés la validez de los datos.
+
+\myparagraph{Validación de datos y tipos de datos}
+Los tipos de datos deben ser validados, en la medida de lo posible, para ser introducidos de forma satisfactoria en la aplicación, esto significa, que si un dato debe ser número entero, no se puede permitir que el usuario inserte una cadena de caracteres, por ejemplo.
+En otras palabras, el objetivo máximo a cumplir es que la aplicación no se vea comprometida con la inserción de ciertos datos.
+
+\myparagraph{Validación de la información}
+No se validará la información que los usuarios insertan, esto significa, que aunque los datos si serán validados, tal y como se especificó en el punto anterior; la información que suben los usuarios depende de ellos y no será comprobada. Poniendo un ejemplo, que un determinado usuario haya subido información falsa sobre la localización de un sitio de escalada o incluso que un usuario abuse verbalmente o publique contenido adulto, racista o sexista.  
+
+
+
+\subsection{Mantenimiento de la aplicación}
+Se debe enfatizar en el desarrollo de una aplicación lo más sencilla de mantener posible.
+Aparte de ``por buena programación'', el motivo principal de este requisito es que se pretende que la aplicación siga siendo desarrollada en el futuro. Por tanto, debe llevarse un sistema de control de versiones, el código debe ser lo más claro y desacoplado posible, el proyecto ha de ser bien documentado y en general, hacer un esfuerzo para llevar a cabo las buenas practicas del desarrollo software para conseguir que la fase de mantenimiento sea efectiva.
+
+
+\subsection{Otros requisitos de la aplicación}
+Algunos de los requisitos de la aplicación no mencionados anteriormente son los siguientes:
+
+\myparagraph{Accesible vía navegador web}
+Como es bastante evidente, la aplicación será accesible desde navegadores web que actuarán como cliente, por tanto, es obvio que se precisará de un navegador web que procese las peticiones web.
+
+\myparagraph{RESTful}
+En su totalidad o en gran medida, la aplicación web debe ser RESTful. REST es el estilo de arquitectura software que consiste en en un conjunto de constantes aplicadas a componentes, conectores y datos. REST ignora los detalles de implementación de los componentes y del protocolo sintáctico. 
+
+\myparagraph{Desarrollado en Ruby on Rails}
+Dado que uno de los objetivos de éste proyecto es aprender el framework \textit{Ruby on Rails}, la aplicación debe ser desarrollada con dicha tecnología intentando abarcar lo máximo posible del framework para tener un aprendizaje lo más completo y sólido posible.
+
+\myparagraph{Requisitos de rendimiento}
+Dado el carácter de red social, se generan ciertos problemas de rendimiento debido a la gran cantidad de datos con la que se va a operar.
+En principio, no hay requisitos específicos ya que no se trata de una aplicación en el que los tiempos de respuesta sean lo más importante como en la programación en tiempo real, pero si que se pretende ser lo más eficiente posible, proporcionando tecnologías rápidas, una base de datos bien estructurada y un código eficiente en lo que a ejecución se refiere.

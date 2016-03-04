@@ -1,195 +1,215 @@
 \select@language {spanish}
 \contentsline {chapter}{Agradecimientos}{II}{chapter*.2}
 \contentsline {chapter}{Resumen}{III}{chapter*.3}
-\contentsline {chapter}{Lista de figuras}{VIII}{chapter*.4}
-\contentsline {chapter}{Lista de cuadros}{IX}{chapter*.5}
-\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}secci\IeC {\'o}n1}{1}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}subsecci\IeC {\'o}n1}{1}{subsection.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1.1}subsubsecci\IeC {\'o}n1}{1}{subsubsection.1.1.1.1}
-\contentsline {paragraph}{p\IeC {\'a}rrafo1}{1}{section*.7}
-\contentsline {chapter}{\numberline {2}Ruby}{2}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{2}{section.2.1}
-\contentsline {section}{\numberline {2.2}Historia}{2}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Concepto Inicial}{2}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}El nombre: \textit {Ruby}}{3}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Primera publicaci\IeC {\'o}n}{3}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Primeras versiones}{3}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Ruby 1.8}{4}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Ruby 1.9}{4}{subsection.2.2.6}
-\contentsline {subsection}{\numberline {2.2.7}Ruby 2.0}{5}{subsection.2.2.7}
-\contentsline {subsection}{\numberline {2.2.8}Ruby 2.1}{5}{subsection.2.2.8}
-\contentsline {subsection}{\numberline {2.2.9}Ruby 2.2}{5}{subsection.2.2.9}
-\contentsline {subsection}{\numberline {2.2.10}Ruby 2.3}{5}{subsection.2.2.10}
-\contentsline {section}{\numberline {2.3}Filosof\IeC {\'\i }a de Ruby}{5}{section.2.3}
-\contentsline {section}{\numberline {2.4}Ruby.\textit {new}}{6}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Ruby \emph {es} un lenguaje Orientado a Objetos}{6}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Arrays and Hashes}{7}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Estructuras de control}{8}{subsection.2.4.3}
-\contentsline {subsection}{\numberline {2.4.4}Expresiones regulares}{9}{subsection.2.4.4}
-\contentsline {subsection}{\numberline {2.4.5}Bloques y Iteradores}{11}{subsection.2.4.5}
-\contentsline {section}{\numberline {2.5}Clases, Objetos y Variables}{12}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Herencia y mensajes}{14}{subsection.2.5.1}
-\contentsline {subsubsection}{\numberline {2.5.1.1}Herencia m\IeC {\'u}ltiple}{15}{subsubsection.2.5.1.1}
-\contentsline {subsection}{\numberline {2.5.2}Atributos}{16}{subsection.2.5.2}
-\contentsline {subsubsection}{\numberline {2.5.2.1}Atributos modificables}{17}{subsubsection.2.5.2.1}
-\contentsline {subsubsection}{\numberline {2.5.2.2}Atributos virtuales}{17}{subsubsection.2.5.2.2}
-\contentsline {subsection}{\numberline {2.5.3}Variables de clase y m\IeC {\'e}todos de clase}{18}{subsection.2.5.3}
-\contentsline {subsubsection}{\numberline {2.5.3.1}Variables de clase}{18}{subsubsection.2.5.3.1}
-\contentsline {subsubsection}{\numberline {2.5.3.2}M\IeC {\'e}todos de clase}{19}{subsubsection.2.5.3.2}
-\contentsline {subsubsection}{\numberline {2.5.3.3}Singletons y otros constructores}{19}{subsubsection.2.5.3.3}
-\contentsline {subsection}{\numberline {2.5.4}Control de Acceso}{20}{subsection.2.5.4}
-\contentsline {subsubsection}{\numberline {2.5.4.1}Especificando el control de acceso}{20}{subsubsection.2.5.4.1}
-\contentsline {subsection}{\numberline {2.5.5}Variables}{22}{subsection.2.5.5}
-\contentsline {section}{\numberline {2.6}Containers, Bloques e Iteradores}{23}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Containers}{23}{subsection.2.6.1}
-\contentsline {subsubsection}{\numberline {2.6.1.1}Arrays}{23}{subsubsection.2.6.1.1}
-\contentsline {subsubsection}{\numberline {2.6.1.2}Hashes}{24}{subsubsection.2.6.1.2}
-\contentsline {subsection}{\numberline {2.6.2}Bloques e iteradores}{24}{subsection.2.6.2}
-\contentsline {subsubsection}{\numberline {2.6.2.1}Bloques para transacciones}{26}{subsubsection.2.6.2.1}
-\contentsline {section}{\numberline {2.7}Tipos b\IeC {\'a}sicos}{26}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}N\IeC {\'u}meros}{26}{subsection.2.7.1}
-\contentsline {subsection}{\numberline {2.7.2}Strings}{27}{subsection.2.7.2}
-\contentsline {subsection}{\numberline {2.7.3}Rangos}{28}{subsection.2.7.3}
-\contentsline {subsubsection}{\numberline {2.7.3.1}Rangos como secuencias}{28}{subsubsection.2.7.3.1}
-\contentsline {subsubsection}{\numberline {2.7.3.2}Rangos como condiciones}{30}{subsubsection.2.7.3.2}
-\contentsline {subsubsection}{\numberline {2.7.3.3}Rangos como intervalos}{30}{subsubsection.2.7.3.3}
-\contentsline {subsection}{\numberline {2.7.4}Expresiones regulares}{31}{subsection.2.7.4}
-\contentsline {subsubsection}{\numberline {2.7.4.1}Patrones}{31}{subsubsection.2.7.4.1}
-\contentsline {subsubsection}{\numberline {2.7.4.2}Anchors}{32}{subsubsection.2.7.4.2}
-\contentsline {subsubsection}{\numberline {2.7.4.3}Clases de caracteres}{32}{subsubsection.2.7.4.3}
-\contentsline {section}{\numberline {2.8}M\IeC {\'e}todos}{32}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}Definiendo un m\IeC {\'e}todo}{32}{subsection.2.8.1}
-\contentsline {subsection}{\numberline {2.8.2}Invocaci\IeC {\'o}n del m\IeC {\'e}todo}{33}{subsection.2.8.2}
-\contentsline {section}{\numberline {2.9}Expresiones}{34}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Operadores}{35}{subsection.2.9.1}
-\contentsline {subsection}{\numberline {2.9.2}Otras expresiones}{36}{subsection.2.9.2}
-\contentsline {subsubsection}{\numberline {2.9.2.1}Comandos}{36}{subsubsection.2.9.2.1}
-\contentsline {subsection}{\numberline {2.9.3}Asignaci\IeC {\'o}n}{36}{subsection.2.9.3}
-\contentsline {subsubsection}{\numberline {2.9.3.1}Asignaci\IeC {\'o}n paralela}{37}{subsubsection.2.9.3.1}
-\contentsline {subsubsection}{\numberline {2.9.3.2}Asignaciones anidadas}{37}{subsubsection.2.9.3.2}
-\contentsline {subsection}{\numberline {2.9.4}Ejecuci\IeC {\'o}n condicional}{38}{subsection.2.9.4}
-\contentsline {subsubsection}{\numberline {2.9.4.1}Expresiones booleanas}{38}{subsubsection.2.9.4.1}
-\contentsline {subsubsection}{\numberline {2.9.4.2}Operadores booleanos}{38}{subsubsection.2.9.4.2}
-\contentsline {subsubsection}{\numberline {2.9.4.3}Expresiones If y Unless}{39}{subsubsection.2.9.4.3}
-\contentsline {subsection}{\numberline {2.9.5}Expresi\IeC {\'o}n Case}{40}{subsection.2.9.5}
-\contentsline {subsection}{\numberline {2.9.6}Bucles}{41}{subsection.2.9.6}
-\contentsline {subsubsection}{\numberline {2.9.6.1}Iteradores}{41}{subsubsection.2.9.6.1}
-\contentsline {subsubsection}{\numberline {2.9.6.2}For ... In}{42}{subsubsection.2.9.6.2}
-\contentsline {subsubsection}{\numberline {2.9.6.3}Break, Redo, Next}{43}{subsubsection.2.9.6.3}
-\contentsline {subsubsection}{\numberline {2.9.6.4}Retry}{43}{subsubsection.2.9.6.4}
-\contentsline {chapter}{\numberline {3}Rails}{45}{chapter.3}
-\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{45}{section.3.1}
-\contentsline {section}{\numberline {3.2}Historia}{46}{section.3.2}
-\contentsline {section}{\numberline {3.3}Descripci\IeC {\'o}n t\IeC {\'e}cnica general}{47}{section.3.3}
-\contentsline {section}{\numberline {3.4}Filosof\IeC {\'\i }a y dise\IeC {\~n}o}{48}{section.3.4}
-\contentsline {section}{\numberline {3.5}Creando un nuevo proyecto de Rails}{49}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Instalando Rails}{49}{subsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.1.1}Instalando Ruby}{49}{subsubsection.3.5.1.1}
-\contentsline {subsubsection}{\numberline {3.5.1.2}Instalando Rails}{50}{subsubsection.3.5.1.2}
-\contentsline {subsubsection}{\numberline {3.5.1.3}Configurando PostgreSQL}{51}{subsubsection.3.5.1.3}
-\contentsline {subsubsection}{\numberline {3.5.1.4}Pasos finales}{51}{subsubsection.3.5.1.4}
-\contentsline {subsection}{\numberline {3.5.2}Creando la primera aplicaci\IeC {\'o}n}{52}{subsection.3.5.2}
-\contentsline {section}{\numberline {3.6}Ejecutando Rails}{54}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Arrancando el servidor Web}{54}{subsection.3.6.1}
-\contentsline {section}{\numberline {3.7}Modelos}{55}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}Active Record}{55}{subsection.3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}Convenci\IeC {\'o}n sobre configuraci\IeC {\'o}n en Active Record}{56}{subsection.3.7.2}
-\contentsline {subsection}{\numberline {3.7.3}Creando modelos Active Record}{56}{subsection.3.7.3}
-\contentsline {subsection}{\numberline {3.7.4}CRUD}{57}{subsection.3.7.4}
-\contentsline {subsubsection}{\numberline {3.7.4.1}Create}{57}{subsubsection.3.7.4.1}
-\contentsline {subsubsection}{\numberline {3.7.4.2}Read}{57}{subsubsection.3.7.4.2}
-\contentsline {subsubsection}{\numberline {3.7.4.3}Update}{58}{subsubsection.3.7.4.3}
-\contentsline {subsubsection}{\numberline {3.7.4.4}Delete}{58}{subsubsection.3.7.4.4}
-\contentsline {subsection}{\numberline {3.7.5}Migraciones de la base de datos}{58}{subsection.3.7.5}
-\contentsline {subsubsection}{\numberline {3.7.5.1}Creando una migraci\IeC {\'o}n simple}{60}{subsubsection.3.7.5.1}
-\contentsline {paragraph}{Generadores de Modelos}{60}{section*.8}
-\contentsline {subsubsection}{\numberline {3.7.5.2}Sintaxis de las migraciones}{61}{subsubsection.3.7.5.2}
-\contentsline {paragraph}{Tablas}{61}{section*.9}
-\contentsline {paragraph}{Join Table}{61}{section*.10}
-\contentsline {paragraph}{Modificaci\IeC {\'o}n de columnas}{61}{section*.11}
-\contentsline {subparagraph}{Modificadores de columnas}{62}{section*.12}
-\contentsline {paragraph}{Claves ajenas}{62}{section*.13}
-\contentsline {paragraph}{Ejecutar SQL}{63}{section*.14}
-\contentsline {paragraph}{Rollback}{63}{section*.15}
-\contentsline {subparagraph}{M\IeC {\'e}todo \texttt {change}}{63}{section*.16}
-\contentsline {subparagraph}{M\IeC {\'e}todo \texttt {reversible}}{64}{section*.17}
-\contentsline {subparagraph}{M\IeC {\'e}todo \texttt {up/down}}{64}{section*.18}
-\contentsline {subsubsection}{\numberline {3.7.5.3}Ejecuci\IeC {\'o}n de migraciones}{65}{subsubsection.3.7.5.3}
-\contentsline {paragraph}{Rollback}{66}{section*.19}
-\contentsline {paragraph}{Otras tareas Rake}{66}{section*.20}
-\contentsline {paragraph}{Migraciones y datos semilla}{67}{section*.21}
-\contentsline {subsection}{\numberline {3.7.6}Validaciones}{67}{subsection.3.7.6}
-\contentsline {subsubsection}{\numberline {3.7.6.1}Introducci\IeC {\'o}n}{67}{subsubsection.3.7.6.1}
-\contentsline {subsubsection}{\numberline {3.7.6.2}Procedimientos de validaci\IeC {\'o}n}{70}{subsubsection.3.7.6.2}
-\contentsline {paragraph}{\texttt {acceptance}}{70}{section*.22}
-\contentsline {paragraph}{\texttt {validates\_associated}}{71}{section*.23}
-\contentsline {paragraph}{\texttt {confirmation}}{71}{section*.24}
-\contentsline {paragraph}{\texttt {exclusion}}{71}{section*.25}
-\contentsline {paragraph}{\texttt {format}}{72}{section*.26}
-\contentsline {paragraph}{\texttt {inclusion}}{72}{section*.27}
-\contentsline {paragraph}{\texttt {length}}{72}{section*.28}
-\contentsline {paragraph}{\texttt {numericality}}{73}{section*.29}
-\contentsline {paragraph}{\texttt {presence}}{73}{section*.30}
-\contentsline {paragraph}{\texttt {absence}}{74}{section*.31}
-\contentsline {paragraph}{\texttt {uniqueness}}{74}{section*.32}
-\contentsline {paragraph}{\texttt {validates\_with}}{75}{section*.33}
-\contentsline {subsubsection}{\numberline {3.7.6.3}Opciones de validaci\IeC {\'o}n}{75}{subsubsection.3.7.6.3}
-\contentsline {subsubsection}{\numberline {3.7.6.4}Validaci\IeC {\'o}n condicional}{76}{subsubsection.3.7.6.4}
-\contentsline {paragraph}{Agrupado y combinado de validaciones}{77}{section*.34}
-\contentsline {subsubsection}{\numberline {3.7.6.5}Validaciones personalizadas}{77}{subsubsection.3.7.6.5}
-\contentsline {subsection}{\numberline {3.7.7}Callbacks}{78}{subsection.3.7.7}
-\contentsline {paragraph}{Callbacks disponibles}{79}{section*.35}
-\contentsline {paragraph}{Ejecuci\IeC {\'o}n de callbacks}{80}{section*.36}
-\contentsline {paragraph}{Callbacks relacionales}{81}{section*.37}
-\contentsline {paragraph}{Callbacks condicionales}{82}{section*.38}
-\contentsline {paragraph}{Clases callback}{83}{section*.39}
-\contentsline {subsection}{\numberline {3.7.8}Asociaciones de Active Record}{83}{subsection.3.7.8}
-\contentsline {subsubsection}{\numberline {3.7.8.1}Tipos de asociaciones}{83}{subsubsection.3.7.8.1}
-\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {belongs\_to}}{83}{section*.40}
-\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_one}}{84}{section*.41}
-\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_many}}{86}{section*.42}
-\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_many :through}}{87}{section*.43}
-\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_one :through}}{89}{section*.44}
-\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_and\_belongs\_to\_many}}{91}{section*.45}
-\contentsline {paragraph}{Asociaciones polimorficas}{92}{section*.46}
-\contentsline {subsection}{\numberline {3.7.9}Interfaz de consultas}{94}{subsection.3.7.9}
-\contentsline {subsubsection}{\numberline {3.7.9.1}Recuperaci\IeC {\'o}n de objetos}{94}{subsubsection.3.7.9.1}
-\contentsline {subsubsection}{\numberline {3.7.9.2}Condiciones}{96}{subsubsection.3.7.9.2}
-\contentsline {paragraph}{Condiciones de cadena}{96}{section*.47}
-\contentsline {paragraph}{Condiciones de Array}{96}{section*.48}
-\contentsline {paragraph}{Condiciones Hash}{96}{section*.49}
-\contentsline {paragraph}{Condiciones negadas}{97}{section*.50}
-\contentsline {subsubsection}{\numberline {3.7.9.3}Ordenaci\IeC {\'o}n}{97}{subsubsection.3.7.9.3}
-\contentsline {subsubsection}{\numberline {3.7.9.4}Selecci\IeC {\'o}n}{98}{subsubsection.3.7.9.4}
-\contentsline {subsubsection}{\numberline {3.7.9.5}Limit y Offset}{98}{subsubsection.3.7.9.5}
-\contentsline {subsubsection}{\numberline {3.7.9.6}Agrupaci\IeC {\'o}n}{99}{subsubsection.3.7.9.6}
-\contentsline {subsubsection}{\numberline {3.7.9.7}Join}{99}{subsubsection.3.7.9.7}
-\contentsline {paragraph}{Formato SQL puro}{99}{section*.51}
-\contentsline {paragraph}{Formato Array/Hash}{99}{section*.52}
-\contentsline {subsubsection}{\numberline {3.7.9.8}Scopes}{101}{subsubsection.3.7.9.8}
-\contentsline {section}{\numberline {3.8}Vistas}{102}{section.3.8}
-\contentsline {subsection}{\numberline {3.8.1}Plantillas, parciales y layouts}{102}{subsection.3.8.1}
-\contentsline {subsubsection}{\numberline {3.8.1.1}Plantillas}{102}{subsubsection.3.8.1.1}
-\contentsline {subsubsection}{\numberline {3.8.1.2}Parciales}{103}{subsubsection.3.8.1.2}
-\contentsline {subsubsection}{\numberline {3.8.1.3}Layouts y layouts parciales}{104}{subsubsection.3.8.1.3}
-\contentsline {section}{\numberline {3.9}Controladores}{104}{section.3.9}
-\contentsline {subsection}{\numberline {3.9.1}Action Controller}{105}{subsection.3.9.1}
-\contentsline {subsubsection}{\numberline {3.9.1.1}M\IeC {\'e}todos y acciones}{105}{subsubsection.3.9.1.1}
-\contentsline {subsubsection}{\numberline {3.9.1.2}Par\IeC {\'a}metros}{106}{subsubsection.3.9.1.2}
-\contentsline {subsubsection}{\numberline {3.9.1.3}Sesiones}{108}{subsubsection.3.9.1.3}
-\contentsline {paragraph}{Flash}{109}{section*.53}
-\contentsline {subsubsection}{\numberline {3.9.1.4}Filtros}{110}{subsubsection.3.9.1.4}
-\contentsline {paragraph}{Filtro Before}{110}{section*.54}
-\contentsline {paragraph}{Filtro After}{110}{section*.55}
-\contentsline {paragraph}{Filtro Around}{110}{section*.56}
-\contentsline {subsection}{\numberline {3.9.2}Enrutamiento en Rails}{110}{subsection.3.9.2}
-\contentsline {subsection}{\numberline {3.9.3}Enrutamiento con recursos}{111}{subsection.3.9.3}
-\contentsline {subsubsection}{\numberline {3.9.3.1}Recursos en la Web}{112}{subsubsection.3.9.3.1}
-\contentsline {subsubsection}{\numberline {3.9.3.2}CRUD, verbos y acciones}{112}{subsubsection.3.9.3.2}
-\contentsline {subsubsection}{\numberline {3.9.3.3}Namespaces}{112}{subsubsection.3.9.3.3}
-\contentsline {subsubsection}{\numberline {3.9.3.4}Recursos anidados}{113}{subsubsection.3.9.3.4}
-\contentsline {chapter}{\numberline {4}Conclusi\IeC {\'o}n}{115}{chapter.4}
-\contentsline {chapter}{\numberline {A}M\IeC {\'a}s cosas}{116}{appendix.Alph1}
-\contentsline {chapter}{\numberline {B}Y m\IeC {\'a}s cosas a\IeC {\'u}n}{117}{appendix.Alph2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{118}{appendix.Alph2}
+\contentsline {chapter}{Lista de figuras}{IX}{chapter*.4}
+\contentsline {chapter}{Lista de cuadros}{1}{chapter*.5}
+\contentsline {chapter}{Parte I: Introducci\IeC {\'o}n}{1}{chapter*.6}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}secci\IeC {\'o}n1}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}subsecci\IeC {\'o}n1}{2}{subsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1.1}subsubsecci\IeC {\'o}n1}{2}{subsubsection.1.1.1.1}
+\contentsline {paragraph}{p\IeC {\'a}rrafo1}{2}{section*.7}
+\contentsline {chapter}{\numberline {2}Ruby}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Historia}{3}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Concepto Inicial}{3}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}El nombre: \textit {Ruby}}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Primera publicaci\IeC {\'o}n}{4}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Primeras versiones}{4}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Ruby 1.8}{5}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Ruby 1.9}{5}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Ruby 2.0}{6}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Ruby 2.1}{6}{subsection.2.2.8}
+\contentsline {subsection}{\numberline {2.2.9}Ruby 2.2}{6}{subsection.2.2.9}
+\contentsline {subsection}{\numberline {2.2.10}Ruby 2.3}{6}{subsection.2.2.10}
+\contentsline {section}{\numberline {2.3}Filosof\IeC {\'\i }a de Ruby}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Ruby.\textit {new}}{7}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Ruby \emph {es} un lenguaje Orientado a Objetos}{7}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Arrays and Hashes}{8}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Estructuras de control}{9}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Expresiones regulares}{10}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Bloques y Iteradores}{12}{subsection.2.4.5}
+\contentsline {section}{\numberline {2.5}Clases, Objetos y Variables}{13}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Herencia y mensajes}{15}{subsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.1.1}Herencia m\IeC {\'u}ltiple}{16}{subsubsection.2.5.1.1}
+\contentsline {subsection}{\numberline {2.5.2}Atributos}{17}{subsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.2.1}Atributos modificables}{18}{subsubsection.2.5.2.1}
+\contentsline {subsubsection}{\numberline {2.5.2.2}Atributos virtuales}{18}{subsubsection.2.5.2.2}
+\contentsline {subsection}{\numberline {2.5.3}Variables de clase y m\IeC {\'e}todos de clase}{19}{subsection.2.5.3}
+\contentsline {subsubsection}{\numberline {2.5.3.1}Variables de clase}{19}{subsubsection.2.5.3.1}
+\contentsline {subsubsection}{\numberline {2.5.3.2}M\IeC {\'e}todos de clase}{20}{subsubsection.2.5.3.2}
+\contentsline {subsubsection}{\numberline {2.5.3.3}Singletons y otros constructores}{20}{subsubsection.2.5.3.3}
+\contentsline {subsection}{\numberline {2.5.4}Control de Acceso}{21}{subsection.2.5.4}
+\contentsline {subsubsection}{\numberline {2.5.4.1}Especificando el control de acceso}{21}{subsubsection.2.5.4.1}
+\contentsline {subsection}{\numberline {2.5.5}Variables}{23}{subsection.2.5.5}
+\contentsline {section}{\numberline {2.6}Containers, Bloques e Iteradores}{24}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Containers}{24}{subsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.1.1}Arrays}{24}{subsubsection.2.6.1.1}
+\contentsline {subsubsection}{\numberline {2.6.1.2}Hashes}{25}{subsubsection.2.6.1.2}
+\contentsline {subsection}{\numberline {2.6.2}Bloques e iteradores}{25}{subsection.2.6.2}
+\contentsline {subsubsection}{\numberline {2.6.2.1}Bloques para transacciones}{27}{subsubsection.2.6.2.1}
+\contentsline {section}{\numberline {2.7}Tipos b\IeC {\'a}sicos}{27}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}N\IeC {\'u}meros}{27}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Strings}{28}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}Rangos}{29}{subsection.2.7.3}
+\contentsline {subsubsection}{\numberline {2.7.3.1}Rangos como secuencias}{29}{subsubsection.2.7.3.1}
+\contentsline {subsubsection}{\numberline {2.7.3.2}Rangos como condiciones}{31}{subsubsection.2.7.3.2}
+\contentsline {subsubsection}{\numberline {2.7.3.3}Rangos como intervalos}{31}{subsubsection.2.7.3.3}
+\contentsline {subsection}{\numberline {2.7.4}Expresiones regulares}{32}{subsection.2.7.4}
+\contentsline {subsubsection}{\numberline {2.7.4.1}Patrones}{32}{subsubsection.2.7.4.1}
+\contentsline {subsubsection}{\numberline {2.7.4.2}Anchors}{33}{subsubsection.2.7.4.2}
+\contentsline {subsubsection}{\numberline {2.7.4.3}Clases de caracteres}{33}{subsubsection.2.7.4.3}
+\contentsline {section}{\numberline {2.8}M\IeC {\'e}todos}{33}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Definiendo un m\IeC {\'e}todo}{33}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Invocaci\IeC {\'o}n del m\IeC {\'e}todo}{34}{subsection.2.8.2}
+\contentsline {section}{\numberline {2.9}Expresiones}{35}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}Operadores}{36}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}Otras expresiones}{37}{subsection.2.9.2}
+\contentsline {subsubsection}{\numberline {2.9.2.1}Comandos}{37}{subsubsection.2.9.2.1}
+\contentsline {subsection}{\numberline {2.9.3}Asignaci\IeC {\'o}n}{37}{subsection.2.9.3}
+\contentsline {subsubsection}{\numberline {2.9.3.1}Asignaci\IeC {\'o}n paralela}{38}{subsubsection.2.9.3.1}
+\contentsline {subsubsection}{\numberline {2.9.3.2}Asignaciones anidadas}{38}{subsubsection.2.9.3.2}
+\contentsline {subsection}{\numberline {2.9.4}Ejecuci\IeC {\'o}n condicional}{39}{subsection.2.9.4}
+\contentsline {subsubsection}{\numberline {2.9.4.1}Expresiones booleanas}{39}{subsubsection.2.9.4.1}
+\contentsline {subsubsection}{\numberline {2.9.4.2}Operadores booleanos}{39}{subsubsection.2.9.4.2}
+\contentsline {subsubsection}{\numberline {2.9.4.3}Expresiones If y Unless}{40}{subsubsection.2.9.4.3}
+\contentsline {subsection}{\numberline {2.9.5}Expresi\IeC {\'o}n Case}{41}{subsection.2.9.5}
+\contentsline {subsection}{\numberline {2.9.6}Bucles}{42}{subsection.2.9.6}
+\contentsline {subsubsection}{\numberline {2.9.6.1}Iteradores}{42}{subsubsection.2.9.6.1}
+\contentsline {subsubsection}{\numberline {2.9.6.2}For ... In}{43}{subsubsection.2.9.6.2}
+\contentsline {subsubsection}{\numberline {2.9.6.3}Break, Redo, Next}{44}{subsubsection.2.9.6.3}
+\contentsline {subsubsection}{\numberline {2.9.6.4}Retry}{44}{subsubsection.2.9.6.4}
+\contentsline {chapter}{\numberline {3}Rails}{46}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{46}{section.3.1}
+\contentsline {section}{\numberline {3.2}Historia}{47}{section.3.2}
+\contentsline {section}{\numberline {3.3}Descripci\IeC {\'o}n t\IeC {\'e}cnica general}{48}{section.3.3}
+\contentsline {section}{\numberline {3.4}Filosof\IeC {\'\i }a y dise\IeC {\~n}o}{49}{section.3.4}
+\contentsline {section}{\numberline {3.5}Creando un nuevo proyecto de Rails}{50}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Instalando Rails}{50}{subsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Instalando Ruby}{50}{subsubsection.3.5.1.1}
+\contentsline {subsubsection}{\numberline {3.5.1.2}Instalando Rails}{51}{subsubsection.3.5.1.2}
+\contentsline {subsubsection}{\numberline {3.5.1.3}Configurando PostgreSQL}{52}{subsubsection.3.5.1.3}
+\contentsline {subsubsection}{\numberline {3.5.1.4}Pasos finales}{52}{subsubsection.3.5.1.4}
+\contentsline {subsection}{\numberline {3.5.2}Creando la primera aplicaci\IeC {\'o}n}{53}{subsection.3.5.2}
+\contentsline {section}{\numberline {3.6}Ejecutando Rails}{55}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Arrancando el servidor Web}{55}{subsection.3.6.1}
+\contentsline {section}{\numberline {3.7}Modelos}{56}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Active Record}{56}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Convenci\IeC {\'o}n sobre configuraci\IeC {\'o}n en Active Record}{57}{subsection.3.7.2}
+\contentsline {subsection}{\numberline {3.7.3}Creando modelos Active Record}{57}{subsection.3.7.3}
+\contentsline {subsection}{\numberline {3.7.4}CRUD}{58}{subsection.3.7.4}
+\contentsline {subsubsection}{\numberline {3.7.4.1}Create}{58}{subsubsection.3.7.4.1}
+\contentsline {subsubsection}{\numberline {3.7.4.2}Read}{58}{subsubsection.3.7.4.2}
+\contentsline {subsubsection}{\numberline {3.7.4.3}Update}{59}{subsubsection.3.7.4.3}
+\contentsline {subsubsection}{\numberline {3.7.4.4}Delete}{59}{subsubsection.3.7.4.4}
+\contentsline {subsection}{\numberline {3.7.5}Migraciones de la base de datos}{59}{subsection.3.7.5}
+\contentsline {subsubsection}{\numberline {3.7.5.1}Creando una migraci\IeC {\'o}n simple}{61}{subsubsection.3.7.5.1}
+\contentsline {paragraph}{Generadores de Modelos}{61}{section*.8}
+\contentsline {subsubsection}{\numberline {3.7.5.2}Sintaxis de las migraciones}{62}{subsubsection.3.7.5.2}
+\contentsline {paragraph}{Tablas}{62}{section*.9}
+\contentsline {paragraph}{Join Table}{62}{section*.10}
+\contentsline {paragraph}{Modificaci\IeC {\'o}n de columnas}{62}{section*.11}
+\contentsline {subparagraph}{Modificadores de columnas}{63}{section*.12}
+\contentsline {paragraph}{Claves ajenas}{63}{section*.13}
+\contentsline {paragraph}{Ejecutar SQL}{64}{section*.14}
+\contentsline {paragraph}{Rollback}{64}{section*.15}
+\contentsline {subparagraph}{M\IeC {\'e}todo \texttt {change}}{64}{section*.16}
+\contentsline {subparagraph}{M\IeC {\'e}todo \texttt {reversible}}{65}{section*.17}
+\contentsline {subparagraph}{M\IeC {\'e}todo \texttt {up/down}}{65}{section*.18}
+\contentsline {subsubsection}{\numberline {3.7.5.3}Ejecuci\IeC {\'o}n de migraciones}{66}{subsubsection.3.7.5.3}
+\contentsline {paragraph}{Rollback}{67}{section*.19}
+\contentsline {paragraph}{Otras tareas Rake}{67}{section*.20}
+\contentsline {paragraph}{Migraciones y datos semilla}{68}{section*.21}
+\contentsline {subsection}{\numberline {3.7.6}Validaciones}{68}{subsection.3.7.6}
+\contentsline {subsubsection}{\numberline {3.7.6.1}Introducci\IeC {\'o}n}{68}{subsubsection.3.7.6.1}
+\contentsline {subsubsection}{\numberline {3.7.6.2}Procedimientos de validaci\IeC {\'o}n}{71}{subsubsection.3.7.6.2}
+\contentsline {paragraph}{\texttt {acceptance}}{71}{section*.22}
+\contentsline {paragraph}{\texttt {validates\_associated}}{72}{section*.23}
+\contentsline {paragraph}{\texttt {confirmation}}{72}{section*.24}
+\contentsline {paragraph}{\texttt {exclusion}}{72}{section*.25}
+\contentsline {paragraph}{\texttt {format}}{73}{section*.26}
+\contentsline {paragraph}{\texttt {inclusion}}{73}{section*.27}
+\contentsline {paragraph}{\texttt {length}}{73}{section*.28}
+\contentsline {paragraph}{\texttt {numericality}}{74}{section*.29}
+\contentsline {paragraph}{\texttt {presence}}{74}{section*.30}
+\contentsline {paragraph}{\texttt {absence}}{75}{section*.31}
+\contentsline {paragraph}{\texttt {uniqueness}}{75}{section*.32}
+\contentsline {paragraph}{\texttt {validates\_with}}{76}{section*.33}
+\contentsline {subsubsection}{\numberline {3.7.6.3}Opciones de validaci\IeC {\'o}n}{76}{subsubsection.3.7.6.3}
+\contentsline {subsubsection}{\numberline {3.7.6.4}Validaci\IeC {\'o}n condicional}{77}{subsubsection.3.7.6.4}
+\contentsline {paragraph}{Agrupado y combinado de validaciones}{78}{section*.34}
+\contentsline {subsubsection}{\numberline {3.7.6.5}Validaciones personalizadas}{78}{subsubsection.3.7.6.5}
+\contentsline {subsection}{\numberline {3.7.7}Callbacks}{79}{subsection.3.7.7}
+\contentsline {paragraph}{Callbacks disponibles}{80}{section*.35}
+\contentsline {paragraph}{Ejecuci\IeC {\'o}n de callbacks}{81}{section*.36}
+\contentsline {paragraph}{Callbacks relacionales}{82}{section*.37}
+\contentsline {paragraph}{Callbacks condicionales}{83}{section*.38}
+\contentsline {paragraph}{Clases callback}{84}{section*.39}
+\contentsline {subsection}{\numberline {3.7.8}Asociaciones de Active Record}{84}{subsection.3.7.8}
+\contentsline {subsubsection}{\numberline {3.7.8.1}Tipos de asociaciones}{84}{subsubsection.3.7.8.1}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {belongs\_to}}{84}{section*.40}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_one}}{85}{section*.41}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_many}}{87}{section*.42}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_many :through}}{88}{section*.43}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_one :through}}{90}{section*.44}
+\contentsline {paragraph}{Asociaci\IeC {\'o}n \texttt {has\_and\_belongs\_to\_many}}{92}{section*.45}
+\contentsline {paragraph}{Asociaciones polimorficas}{93}{section*.46}
+\contentsline {subsection}{\numberline {3.7.9}Interfaz de consultas}{95}{subsection.3.7.9}
+\contentsline {subsubsection}{\numberline {3.7.9.1}Recuperaci\IeC {\'o}n de objetos}{95}{subsubsection.3.7.9.1}
+\contentsline {subsubsection}{\numberline {3.7.9.2}Condiciones}{97}{subsubsection.3.7.9.2}
+\contentsline {paragraph}{Condiciones de cadena}{97}{section*.47}
+\contentsline {paragraph}{Condiciones de Array}{97}{section*.48}
+\contentsline {paragraph}{Condiciones Hash}{97}{section*.49}
+\contentsline {paragraph}{Condiciones negadas}{98}{section*.50}
+\contentsline {subsubsection}{\numberline {3.7.9.3}Ordenaci\IeC {\'o}n}{98}{subsubsection.3.7.9.3}
+\contentsline {subsubsection}{\numberline {3.7.9.4}Selecci\IeC {\'o}n}{99}{subsubsection.3.7.9.4}
+\contentsline {subsubsection}{\numberline {3.7.9.5}Limit y Offset}{99}{subsubsection.3.7.9.5}
+\contentsline {subsubsection}{\numberline {3.7.9.6}Agrupaci\IeC {\'o}n}{100}{subsubsection.3.7.9.6}
+\contentsline {subsubsection}{\numberline {3.7.9.7}Join}{100}{subsubsection.3.7.9.7}
+\contentsline {paragraph}{Formato SQL puro}{100}{section*.51}
+\contentsline {paragraph}{Formato Array/Hash}{100}{section*.52}
+\contentsline {subsubsection}{\numberline {3.7.9.8}Scopes}{102}{subsubsection.3.7.9.8}
+\contentsline {section}{\numberline {3.8}Vistas}{103}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Plantillas, parciales y layouts}{103}{subsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.1.1}Plantillas}{103}{subsubsection.3.8.1.1}
+\contentsline {subsubsection}{\numberline {3.8.1.2}Parciales}{104}{subsubsection.3.8.1.2}
+\contentsline {subsubsection}{\numberline {3.8.1.3}Layouts y layouts parciales}{105}{subsubsection.3.8.1.3}
+\contentsline {section}{\numberline {3.9}Controladores}{105}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Action Controller}{106}{subsection.3.9.1}
+\contentsline {subsubsection}{\numberline {3.9.1.1}M\IeC {\'e}todos y acciones}{106}{subsubsection.3.9.1.1}
+\contentsline {subsubsection}{\numberline {3.9.1.2}Par\IeC {\'a}metros}{107}{subsubsection.3.9.1.2}
+\contentsline {subsubsection}{\numberline {3.9.1.3}Sesiones}{109}{subsubsection.3.9.1.3}
+\contentsline {paragraph}{Flash}{110}{section*.53}
+\contentsline {subsubsection}{\numberline {3.9.1.4}Filtros}{111}{subsubsection.3.9.1.4}
+\contentsline {paragraph}{Filtro Before}{111}{section*.54}
+\contentsline {paragraph}{Filtro After}{111}{section*.55}
+\contentsline {paragraph}{Filtro Around}{111}{section*.56}
+\contentsline {subsection}{\numberline {3.9.2}Enrutamiento en Rails}{111}{subsection.3.9.2}
+\contentsline {subsection}{\numberline {3.9.3}Enrutamiento con recursos}{112}{subsection.3.9.3}
+\contentsline {subsubsection}{\numberline {3.9.3.1}Recursos en la Web}{113}{subsubsection.3.9.3.1}
+\contentsline {subsubsection}{\numberline {3.9.3.2}CRUD, verbos y acciones}{113}{subsubsection.3.9.3.2}
+\contentsline {subsubsection}{\numberline {3.9.3.3}Namespaces}{113}{subsubsection.3.9.3.3}
+\contentsline {subsubsection}{\numberline {3.9.3.4}Recursos anidados}{114}{subsubsection.3.9.3.4}
+\contentsline {chapter}{Parte II: Desarrollo de la aplicaci\IeC {\'o}n}{115}{lstnumber.-280.3}
+\contentsline {chapter}{\numberline {4}An\IeC {\'a}lisis del sistema}{116}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{116}{section.4.1}
+\contentsline {section}{\numberline {4.2}Requisitos del sistema}{116}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Requisitos de interfaces de usuario}{116}{subsection.4.2.1}
+\contentsline {paragraph}{Interfaz de usuario intuitiva}{116}{section*.57}
+\contentsline {paragraph}{Interfaz de usuario sencilla}{117}{section*.58}
+\contentsline {paragraph}{Interfaz de usuario atractiva}{117}{section*.59}
+\contentsline {paragraph}{Interfaz de usuario con dise\IeC {\~n}o reponsive}{117}{section*.60}
+\contentsline {subsection}{\numberline {4.2.2}Requisitos funcionales}{118}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Requisitos de validaci\IeC {\'o}n y verificaci\IeC {\'o}n}{118}{subsection.4.2.3}
+\contentsline {paragraph}{Validaci\IeC {\'o}n de datos y tipos de datos}{118}{section*.61}
+\contentsline {paragraph}{Validaci\IeC {\'o}n de la informaci\IeC {\'o}n}{118}{section*.62}
+\contentsline {subsection}{\numberline {4.2.4}Mantenimiento de la aplicaci\IeC {\'o}n}{118}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Otros requisitos de la aplicaci\IeC {\'o}n}{118}{subsection.4.2.5}
+\contentsline {paragraph}{Accesible v\IeC {\'\i }a navegador web}{119}{section*.63}
+\contentsline {paragraph}{RESTful}{119}{section*.64}
+\contentsline {paragraph}{Desarrollado en Ruby on Rails}{119}{section*.65}
+\contentsline {paragraph}{Requisitos de rendimiento}{119}{section*.66}
+\contentsline {chapter}{\numberline {5}Conclusi\IeC {\'o}n}{120}{chapter.5}
+\contentsline {chapter}{\numberline {A}M\IeC {\'a}s cosas}{121}{appendix.Alph1}
+\contentsline {chapter}{\numberline {B}Y m\IeC {\'a}s cosas a\IeC {\'u}n}{122}{appendix.Alph2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{123}{appendix.Alph2}
